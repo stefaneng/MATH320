@@ -1,0 +1,172 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[top=1.5in,left=1in,right=1in,bottom=1.5in,headheight=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb,amsthm}
+
+% Better looking empty set
+\let\emptyset\varnothing
+
+% Weirdness to get the proposition to start at 2.1
+\newcounter{count}
+\setcounter{count}{2}
+\newtheorem{prop}{Proposition}[count]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Information for Title %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Fill this in with your own information
+
+\newcommand{\name}{
+% Enter your name here
+Stefan Eng
+}
+
+\newcommand{\professor}{
+% Professors name goes here
+Dr. Katherine Stevenson
+}
+
+\newcommand{\classcode}{
+% Class name "code" goes here. e.g, Math320
+Math 320
+}
+
+\newcommand{\classname}{
+% Class name goes here
+Foundations of Higher Mathematics
+}
+
+\newcommand{\duedate}{
+% Due date goes here
+9/11/13
+}
+
+\newcommand{\chSec}{
+% Enter in chapter sections
+2.1
+}
+    
+\newcommand{\problems}{
+% Enter in the problem numbers we are working on
+1, 10, 15, 17, 18, 19
+}
+
+\newcommand{\assignment}{
+% Enter assignment number
+1
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%% Heading -- No need to edit %%%
+\pagestyle{fancy}
+\rhead{\name \\ \professor \\ \classcode \\ \duedate}
+\lhead{Section:\chSec\ \\ Problems:\problems \ \&\ Group\ Work}
+\cfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+%%%
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% Good reference for math commands web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html
+
+\begin{document}
+
+%%% Make the title %%%
+\begin{center}
+\textsc{\Large \classname}\\[.3cm]
+\textsc{\Large Homework \assignment}
+\end{center}
+%%% End title %%%
+
+%%% Start Assignment Here %%%
+
+\section*{Group Work}
+\begin{enumerate}
+\item Find the power set of $A = \{1,2,3,4\}$
+  \begin{align*}
+    \mathcal{P}{(A)} = \{ 
+    & \{ \emptyset \}, \{1\}, \{2\}, \{3\}, \{4\}, \\
+    & \{1,2\}, \{1,3\}, \{1,4\}, \{2,3\}, \{2,4\}, \{3,4\}, \\
+    & \{1,2,3\}, \{1,2,4\}, \{1,3,4\}, \{2,3,4\}, \\
+    &\{1,2,3,4\} \}
+  \end{align*}
+\item What is the cardinality of $\mathcal{P}{(A)}$?
+  $$ |\mathcal{P}{(A)}| = 16 $$
+\item \textbf{No}, there is not a set with 12 subsets. As seen above, a set with 4 elements has 16 subsets. A set with 3 elements has 8 elements. We need a set less than 4 elements and more than 3, which clearly makes a set with 12 subsets impossible.
+\item If A and B are sets and $A \subseteq B$ then $\mathcal{P}{(A)} \subseteq \mathcal{P}{(B)}$.
+  \begin{enumerate}[a)] 
+  \item \textit{Proof 1:} is \textbf{not correct}, because if we let $x \in \mathcal{P}{(A)}$ then $x \not \in A$. Correction: $x \subseteq A$
+  \item \textit{Proof 2:} is \textbf{not correct}, because we only proved the case where $A = \{1,2\}$ and $B = \{1,2,3\}$.
+  \item \textit{Proof 3:} is \textbf{not correct}, because it only shows a specific example for the power set. This only shows single elements in the power set, not all of the other possibilities.
+  \end{enumerate}
+\item \begin{proof}[Modified Proof 1] Let $x \in P(A)$. Then $x \subseteq A$. Since $A \subseteq B$, $x \subseteq B$. Therefore $x \in \mathcal{P}{(A)}$, so $\mathcal{P}{(A)} \subseteq \mathcal{P}{(B)}$. \end{proof}
+\end{enumerate}
+
+
+\section*{Problem 1}
+
+\begin{prop}
+  If $A$ is a set that has no members and $B$ is a set that has no members, then $A = B$.
+\end{prop}
+\begin{proof}
+Assume A and B have no members. Then $A = \{ \}$ and $B = \{ \}$. For all x in A, it is (vacuously) true that it is in B. Thus, $A \subseteq B$. Similarly for B, all elements in B are in A. Hence, $B \subseteq A$. Therefore, $A = B$.
+\end{proof}
+
+\section*{Problem 10}
+\begin{multicols}{2}
+  \begin{enumerate}[a)]
+  \item $\emptyset \in \{ \emptyset \}$ is \textbf{true}.
+  \item $\emptyset \subseteq \{ \emptyset \}$ is \textbf{true}.
+  \item $\frac{\pi}{4} \in \{ \frac{\pi}{4} \}$ is \textbf{true}.
+  \item $\emptyset \in \{ \frac{\pi}{4} \} $ is \textbf{false}.
+  \item $\frac{\pi}{4} \in \{ \{ \frac{\pi}{4} \} \} $ is \textbf{false}.
+  \item $\{ \frac{\pi}{4} \} \subseteq \{ \{ \frac{\pi}{4} \}\}$ is \textbf{false}.
+  \item $\{ \frac{\pi}{4} \} \in \{ \{ \frac{\pi}{4} \}\}$ is \textbf{true}.
+  \item $\emptyset \subseteq \{ \{ \frac{\pi}{4} \} \}$ is \textbf{true}.
+  \item $\{ \frac{\pi}{4} \} \subseteq \{ \frac{\pi}{4}, \{ \frac{\pi}{2} \} \}$ is \textbf{true}.
+  \end{enumerate}
+\end{multicols}
+\section*{Problem 15}
+\begin{multicols}{2}
+  \begin{enumerate}[a)]
+  \item $ \{ x \in \mathbb{R}: x > 3, x^2 < 5,$ and $x \not = 4 \} = \emptyset$
+  \item $ \{ x \in \mathbb{R}: x > 3$ or $- x > 3 \}$ is the set of all real numbers excluding 3.
+  \item $ \{ x \in \mathbb{R}: x > 3$ and $- x > 3 \} = \emptyset$, a number cannot be above and below 3 at the same time.
+    \vfill
+    \columnbreak
+  \item $ \{ x \in \mathbb{R}: x > 3$ and $-x < 3 \}$ is all real numbers greater than 3.
+  \item $ \{ x \in \mathbb{R}: x^2 \not = x \}$ is the set of all real numbers, excluding 1 and 0.
+  \end{enumerate}
+\end{multicols}
+
+\section*{Problem 17}
+Suppose, A, B, and C are sets. If $A \not \subseteq B$ and $B \not \subseteq C$, then $A \not \subseteq C$.\\
+\renewcommand{\qedsymbol}{}
+\begin{proof}[``Proof 1'']
+ Let $x \in A$. Since $A \not \subseteq B$, $x \not \in B$. Since $x \not \in B$, $x \not \in C$. Therefore x is a member of A and x is not a member of C, so $A \not \subseteq C$.
+\end{proof}
+Proof 1 is \textbf{incorrect}. The step, Since $x \not \in B, x \not \in C$ is incorrect. If $x \in B$, then we could conclude $x \not \in C$.
+
+\begin{proof}[``Proof 2''] 
+Since $B \not \subseteq C$, there exists $x \in B$ such that $x \not \in C$. Since $A \not \subseteq B$ there exists $y \in A$ such that $y \not \in B$. Therefore, $x \not = y$, and therefore $A \not \subseteq C$.
+\end{proof}
+Proof 2 is \textbf{incorrect} about the $x \not = y,$ therefore $A \not \subseteq C$ part. $A \not \subseteq C$ does not follow from $x \not = y$.
+\begin{proof}[``Counterexample''] Let $A = \{ 1,2,3 \}$, $B = \{ 1,2,4,5 \}$, $C = \{ 1,2,3,4 \}$
+\end{proof}
+The counterexample is correct. $A \not \subseteq B$ because $3 \in A$ and $3 \not \in B$. $B \not \subseteq C$ because $5 \in B$ and $5 \not \in C$. The part that shows that the counter example is correct is that, A \textbf{is a subset} of C. $1,2,3 \in A$ and $1,2,3 \in C$.
+\section*{Problem 18}
+See part 4 of the group work.
+\section*{Problem 19}
+See part 5 of the group work.
+
+\end{document}
+
+%%% End assignment %%%
