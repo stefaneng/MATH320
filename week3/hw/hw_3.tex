@@ -1,0 +1,195 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[top=1.5in,left=1in,right=1in,bottom=1.5in,headheight=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{amsmath,amssymb,amsthm}
+
+% Better looking empty set
+\let\emptyset\varnothing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              Example of how to declare theorem style                   %
+% \newtheoremstyle{name} % name of the style to be used                  %
+%   {spaceabove}% measure of space to leave above the theorem. E.g.: 3pt %
+%   {spacebelow}% measure of space to leave below the theorem. E.g.: 3pt %
+%   {bodyfont}% name of font to use in the body of the theorem           %
+%   {indent}% measure of space to indent                                 %
+%   {headfont}% name of head font                                        %
+%   {headpunctuation}% punctuation between head and body                 %
+%   {headspace}% space after theorem head; " " = normal interword space  %
+%   {headspec}% Manually specify head                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheoremstyle{example}{\topsep}{\topsep}%
+{}%         Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}% Thm head font
+{}%        Punctuation after thm head
+{\newline}%     Space after thm head (\newline = linebreak)
+{\thmname{#1}\thmnote{ #3}}%         Thm head spec
+
+\theoremstyle{example}
+\newtheorem{prob}{Problem}
+
+%%% Heading -- No need to edit %%%
+\pagestyle{fancy}
+
+\rhead{
+  Stefan Eng\\
+  Dr. Katherine Stevenson\\
+  Math 320\\
+  9/18/13
+}
+\lhead{
+  (1.4-1.5) 63, 66, 70, 72, 75\\
+  (2.2) 24, 29a, c, d, 30, 31
+}
+
+\cfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+%%%
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+% For manual qed box
+\def\bs{\hspace{\stretch1}\ensuremath\blacksquare}
+
+\begin{document}
+
+%%% Make the title %%%
+\begin{center}
+\textsc{\Large Foundations of Higher Mathematics}\\[.3cm]
+\textsc{\Large Homework 3}
+\end{center}
+%%% End title %%%
+
+%%% Start Assignment Here %%%
+
+\section*{Chapter 1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{prob}[63]
+  Let A be an even integer and B be an odd integer. Prove that A + B is odd and AB is even.
+\begin{proof}
+    If A is even and B is odd, then there exists integers k, n, such that $A = 2q$ and $B = 2k + 1$. It follows that, 
+    \begin{align*}
+      A + B &= 2q + (2k + 1)\\
+            &= (2q + 2k) + 1
+    \end{align*}
+    Thus, since $2q + 2k \in \mathbb{Z}$, A + B is odd. Similarly for AB,
+    \begin{align*}
+      AB &= 2q(2k+1)\\
+      &= 4qk + 2q\\
+      &= 2(2qk + q)
+    \end{align*}
+    it follows that since $2qk+q$ is an integer, AB is even.
+  \end{proof}
+\end{prob}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}[66]
+  Let $x$ be a real number. Prove $x = -1$ if and only if $x^3 + x^2 + x + 1 = 0$
+  \renewcommand\qedsymbol{}
+  \begin{proof} ($\rightarrow$)\\
+    Assume $x = -1$. Then 
+    \begin{align*}
+      x^3 + x^2 + x + 1          &= 0\\
+      (-1)^3 + (-1)^2 + (-1) + 1 &= 0\\
+      -1 + 1 -1 + 1              &= 0\\
+      0                          &= 0
+    \end{align*}
+      Thus, $x = -1$ implies $x^3 + x^2 + x + 1 = 0$.
+  \end{proof}
+
+  \begin{proof} ($\leftarrow$)
+    Assume $x^3 + x^2 + x + 1 = 0$. Then
+    \begin{align*}
+      x^3 + x^2 + x + 1     &= 0\\
+      (x^3 + x^2) + (x + 1) &= 0\\
+      x^2(x+1) + (x+1)      &= 0\\
+      (x+1)(x^2 + 1)        &= 0
+    \end{align*}
+    Since $x \in \mathbb{R}$ the only solution is $x = -1$. Therefore, $x^3 + x^2 + x + 1 = 0$ implies $x = -1$.
+  \end{proof}
+  Proving both directions, we can conclude that $x = -1$ if and only if $x^3 + x^2 + x + 1 = 0 \bs$
+\end{prob}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \begin{prob}[70]
+   Let $n$ be an integer such that $n^2$ is even. Prove that $n^2$ is divisible by 4.
+   \begin{proof}
+     Assume $n^2$ is even. Then by theorem 1.12 in the book, $n$ is even. Since $n$ is even, there exists a $k$ such that, $n = 2k$. It follows that,
+     \begin{align*}
+       n^2 &= 2k \times 2k\\
+           &= 4k^2\\
+           &= 4(k^2)
+     \end{align*}
+     Since $k^2$ is an integer, 4 divides $n^2$.
+  \end{proof}
+\end{prob}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{prob}[72]
+The student was wrong 
+\end{prob}
+
+\begin{prob}[75]
+  Prove, by contradiction, that the sum of two even integers is even.
+\end{prob}
+
+\section*{Chapter 2}
+\begin{prob}[24]
+Prove that $A \cap B = A$ if and only if $A \subseteq B$.
+\renewcommand\qedsymbol{}
+\begin{proof}($\rightarrow$)
+Assume $A \cap B = A$. Then $A \subseteq A \cap B$. If we take an arbitrary element $x$ of $A$, then $x$ is in $A$ and $B$. It follows that every element in $A$ is also in $B$. Thus, $A \subseteq B$. Therefore, $A \cap B = A$ implies $A \subseteq B$.
+\end{proof}
+\begin{proof}($\leftarrow$)
+Assume $A \subseteq B$. Suppose $x$ is an arbitrary element of $A$. Then $x$ is in $B$. So if $x$ is in $A$ and $x$ is in $B$, then for all $x$ that are in $A$ and $B$, $x$ is in $A$. Thus, $A \cap B \subseteq A$. Similarly, $A \subseteq A \cap B$ which implies that $A \cap B = A$. Therefore, $A \subseteq B$ implies $A \cap B = A$.
+\end{proof}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+Therefore, $A \cap B = A$ if and only if $A \subseteq B\bs$
+\end{prob}
+
+\begin{prob}[29a]
+$\emptyset \cap A = \emptyset$ and $\emptyset \cup A = A$
+\begin{proof}
+Blah
+\end{proof}
+\end{prob}
+
+\begin{prob}[29c]
+$A \subseteq A \cup B$
+\begin{proof}
+blah
+\end{proof}
+\end{prob}
+
+\begin{prob}[29d]
+$A \cup B = B \cup A$ and $A \cap B = B \cap A$
+\begin{proof}
+blah
+\end{proof}
+\end{prob}
+
+\begin{prob}[30]
+\textbf{Counterexample:} $P = \emptyset, Q = \emptyset, R = \{1\}$
+\begin{align*}
+  (P \cap Q) \cup R                     &= P \cap (Q \cup R)\\
+  (\emptyset \cap \emptyset) \cup \{1\} &= \emptyset \cap (\emptyset \cup \{1\})\\
+  \emptyset \cup \{1\}                  &= \emptyset \cap \{1\}\\
+  \{1\}                                 &\not = \emptyset
+\end{align*}
+\end{prob}
+
+\begin{prob}[31]
+\begin{proof}
+blah
+\end{proof}
+\end{prob}
+%%% End assignment %%%
+\end{document}
+
+
+
