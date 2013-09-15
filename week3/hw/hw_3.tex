@@ -9,20 +9,7 @@
 % Better looking empty set
 \let\emptyset\varnothing
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%              Example of how to declare theorem style                   %
-% \newtheoremstyle{name} % name of the style to be used                  %
-%   {spaceabove}% measure of space to leave above the theorem. E.g.: 3pt %
-%   {spacebelow}% measure of space to leave below the theorem. E.g.: 3pt %
-%   {bodyfont}% name of font to use in the body of the theorem           %
-%   {indent}% measure of space to indent                                 %
-%   {headfont}% name of head font                                        %
-%   {headpunctuation}% punctuation between head and body                 %
-%   {headspace}% space after theorem head; " " = normal interword space  %
-%   {headspec}% Manually specify head                                    %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newtheoremstyle{example}{\topsep}{\topsep}%
+\newtheoremstyle{problem}{\topsep}{\topsep}%
 {}%         Body font
 {}%         Indent amount (empty = no indent, \parindent = para indent)
 {\bfseries}% Thm head font
@@ -30,8 +17,11 @@
 {\newline}%     Space after thm head (\newline = linebreak)
 {\thmname{#1}\thmnote{ #3}}%         Thm head spec
 
-\theoremstyle{example}
+\theoremstyle{problem}
 \newtheorem{prob}{Problem}
+
+% No indent for whole page
+\setlength\parindent{0pt}
 
 %%% Heading -- No need to edit %%%
 \pagestyle{fancy}
@@ -66,7 +56,6 @@
 %%% Start Assignment Here %%%
 
 \section*{Chapter 1}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{prob}[63]
   Let A be an even integer and B be an odd integer. Prove that A + B is odd and AB is even.
@@ -111,7 +100,7 @@
     \end{align*}
     Since $x \in \mathbb{R}$ the only solution is $x = -1$. Therefore, $x^3 + x^2 + x + 1 = 0$ implies $x = -1$.
   \end{proof}
-  Proving both directions, we can conclude that $x = -1$ if and only if $x^3 + x^2 + x + 1 = 0 \bs$
+Proving both directions, we can conclude that $x = -1$ if and only if $x^3 + x^2 + x + 1 = 0 \bs$
 \end{prob}
 \renewcommand{\qedsymbol}{$\blacksquare$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -131,11 +120,14 @@
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{prob}[72]
-The student was wrong 
+The student was 
 \end{prob}
 
 \begin{prob}[75]
   Prove, by contradiction, that the sum of two even integers is even.
+\begin{proof}\textit{(Contradiction)}: Assume the sum of two even integers is odd. Then there exist integers $k,q$ such that, 2k + 2q = 2(k + q). This is a contradiction, since we said the sum was odd, so therefore the sum of two even integers is even.
+\end{proof}
+
 \end{prob}
 
 \section*{Chapter 2}
@@ -154,22 +146,29 @@ Therefore, $A \cap B = A$ if and only if $A \subseteq B\bs$
 
 \begin{prob}[29a]
 $\emptyset \cap A = \emptyset$ and $\emptyset \cup A = A$
-\begin{proof}
-Blah
+\begin{proof}($\emptyset \cap A = \emptyset$)
+Assume an arbitrary $x$ in $\emptyset$ and A. There are no elements that are in $\emptyset$ and $A$ so it is (vacuously) true that x $\in \emptyset$. The statement
+$\emptyset \subseteq \emptyset \cap A$ follows directly from the fact the empty set is a subset of every set. Therefore $\emptyset \cap A = \emptyset$.
+\end{proof}
+\begin{proof}($\emptyset \cup A = A$)
+Assume $x$ is in $\emptyset$ or $A$. If $x$ in $A$, $A \subseteq A$ from \textit{proposition 2.2} in the book. If $x$ in $A$, $\emptyset \subseteq A$ since $\emptyset$ is a subset of every set. Also, if $x$ in $A$, then $x$ in $A$ or $\emptyset$. Thus, $\emptyset \cup A \subseteq A$ and $A \subseteq \emptyset \cup A$. Therefore, $\emptyset \cup A = A$.
 \end{proof}
 \end{prob}
 
 \begin{prob}[29c]
 $A \subseteq A \cup B$
 \begin{proof}
-blah
+Assume $x$ is an element of $A$. Then $x$ is in $A$ or $x$ is in $B$. Therefore, $A \subseteq A \cup B$.
 \end{proof}
 \end{prob}
 
 \begin{prob}[29d]
 $A \cup B = B \cup A$ and $A \cap B = B \cap A$
-\begin{proof}
-blah
+\begin{proof}($A \cup B = B \cup A$)\\
+Suppose x is and element of $A \cup B$. Then x is in $A$ or x is in $B$. Thus $x$ is in $B$ or $x$ is in $A$. Hence, $A \cup B \subseteq B \cup A$ and similarly $B \cup A \subseteq A \cup B$. Therefore, $A \cup B = B \cup A$.
+\end{proof}
+\begin{proof}($A \cap B = B \cap A$)\\
+The proof is the same as above, replacing the words \textit{or} for \textit{and}.
 \end{proof}
 \end{prob}
 
@@ -184,9 +183,8 @@ blah
 \end{prob}
 
 \begin{prob}[31]
-\begin{proof}
-blah
-\end{proof}
+The student's proof was \textbf{wrong.} The mistake he or she made was in the step, $x \in A$ and $x \not \in B$ or $x \not \in C$. The statement should look like, $x \in A$ and $x \not \in B$ \textbf{and} $x \not \in C$.
+
 \end{prob}
 %%% End assignment %%%
 \end{document}
