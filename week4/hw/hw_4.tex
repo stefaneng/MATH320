@@ -5,6 +5,8 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{multicol}
+\usepackage{enumerate}
 
 
 % Better looking empty set
@@ -21,12 +23,13 @@
 \theoremstyle{problem}
 \newtheorem{prob}{Problem}
 
-%\theoremstyle{plain}
+\theoremstyle{plain}
 %\newtheorem{thm}{Theorem}
-
+\newtheorem{lem}{Lemma}
 % No indent for whole page
 \setlength\parindent{0pt}
 
+\setlength{\columnsep}{1cm}
 %%% Heading -- No need to edit %%%
 \pagestyle{fancy}
 
@@ -38,7 +41,7 @@
 }
 \lhead{
   (3.1) 1d, 1j, 1m, 4, 5, 8, 11\\
-  (3.2-3.3) 20, 25, 28, 35, 36, 39, 40, 53
+  (3.2) 20, 25, 28, 35, 36
 }
 
 \cfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -64,12 +67,10 @@
   %\begin{thm}
   $5 + 10 + 15 + \ldots + 5n = \frac{5n(n + 1)}{2}$
   %\end{thm}
-  \begin{proof}\ 
-    \begin{enumerate}
-      \item S = \{$n \in \mathbb{N}$ $|\ 5 + 10 + 15 + \ldots + 5n = \frac{5n(n + 1)}{2}$\}
-      \item (Basis) n = 1 implies, $5(1) = \frac{5(1)(1 + 1)}{2} = 5$, thus $1 \in S$
-      \item (Induction Hypothesis) Assume $n \in S$. Thus, $5 + 10 + 15 + \ldots + 5n = \frac{5n(n + 1)}{2}$. Then we want to show $n + 1 \in S$.      
-    \end{enumerate}
+  \begin{proof}
+    Let S = \{$n \in \mathbb{N}$ $|\ 5 + 10 + 15 + \ldots + 5n = \frac{5n(n + 1)}{2}$\}.
+    Then n = 1 implies, $5(1) = \frac{5(1)(1 + 1)}{2} = 5$, thus $1 \in S$.
+    Assume $n \in S$. Thus, $5 + 10 + 15 + \ldots + 5n = \frac{5n(n + 1)}{2}$ (Induction Hypothesis). Then we want to show $n + 1 \in S$.      
     \begin{align*}
       [5 + 10 + 15 + \ldots + 5n] + 5(n + 1) &= \frac{5n(n + 1)}{2} + 5(n + 1) \tag*{(Induction hypothesis)}\\
       &= 5(n + 1)(\frac{n}{2} + 1)\\
@@ -81,11 +82,11 @@
   \end{prob}
   \begin{prob}[1j]
     $7^n - 2^n$ is divisible by 5.
-    \begin{proof}\  
+    \begin{proof}(Induction)
       \begin{enumerate}
       \item S = \{$n \in \mathbb{N}$ $|\ 5 | (7^n - 2^n)$\}
       \item (Basis) $n = 1$ implies, $5 | (7^1 - 2^1)$. Thus, $5(1) = 5$, so $1 \in S$.
-      \item (Induction Hypothesis) Assume $m \in S$. Then, $5 | (7^n - 2^n)$. Want to show that $m + 1 \in S$.
+      \item (Induction Hypothesis) Assume $m \in S$. Then, $5 | (7^m - 2^m)$. Want to show that $m + 1 \in S$.
       \end{enumerate}
       \begin{align*}
         7^{m+1} - 2^{m+1} &= 7^{m+1} -7(2^m) + 7(2^m) - 2^{m+1}\\
@@ -97,8 +98,120 @@
     \end{proof}
   \end{prob}
  
+  \begin{prob}[1m]
+    $4^n - 1$ is divisible by 3.
+    \begin{proof}(Induction) 
+      \begin{enumerate}
+      \item S = \{$n \in \mathbb{N}$ $|\ 3 | (4^n - 1)$\}
+      \item (Basis) $n = 1$ implies, $3 | (4^1 - 1)$. Thus, $3(1) = 3$, so $1 \in S$.
+      \item (Induction Hypothesis) Assume $m \in S$. Then, $3 | (4^m - 1)$. Want to show that $m + 1 \in S$.
+      \end{enumerate}
+      \begin{align*}
+        4^{m+1} - 1 &= 4^{m+1} - 4 + 4 - 1\\
+        &= 4\underbrace{(4^m - 1)}_{\text{(Ind. Hyp)}} + 3\\
+        &= 4(3k) + 3\\
+        &= 3(4k + 1)
+      \end{align*}
+      Since $4k + 1 \in \mathbb{Z}$, $3 | (4^{m+1} - 1)$. Therefore, $m+1 \in S$. So by the Principle of Mathematical Induction, $S = \mathbb{N}$.
+    \end{proof}
+  \end{prob}
+
+  \begin{prob}[4]
+    Blah
+  \end{prob}
+
+  \begin{prob}[5]
+    The product of any three consecutive natural numbers is divisible by 6.
+    \begin{multicols}{2}
+    \begin{proof}
+      Let $S = \{n \in \mathbb{N} |\ 6 | n(n+1)(n+2)\}$. Then if $n = 1$, we see that $6|1(1+1)(1+2) = 6|6$, 1 is clearly in S. Assume that $k \in S$ such that, $6|k(k+1)(k+2)$. We want to show that $k+1 \in S$.
+      \begin{align*}
+        (k+1)&[(k+1)+1][(k+1)+2] \\
+        &= k+1(k+2)(k+3)\\
+        &= \underbrace{k(k+1)(k+2)}_{Ind. Hyp.} + 3\underbrace{(k+1)(k+2)}_{Lemma}\\
+        &= 6q + 3(2r)\\
+        &= 6(q + r)        
+      \end{align*}
+      Since $q + r \in \mathbb{Z}$, we can clearly see that it is divisible by 6. Thus proving that $k + 1 \in S$ and so by the Principle of Mathematical Induction, $S=\mathbb{N}$.
+    \end{proof}
+    \vfill
+    \columnbreak
+    \begin{lem}
+      The product of two consecutive natural number is divisible by 2
+      \begin{proof}
+        We will prove the two cases of starting with an odd number, and starting with and even.
+        \begin{enumerate}[{Case} 1)]
+        \item Assume we start with an even number. Let's call that number 2h. Then the next consecutive number is 2h+1. The product of these numbers is as follows:
+          \begin{align*}
+            2h(2h+1) &= 4h^2 + 2h\\
+            &= 2(2h^2 + h)
+          \end{align*}
+          Since $2h^2 + h \in \mathbb{Z}$, we have shown that 2 divides it.
+        \item Assume now that we start with an odd number. The proof is similar:
+          \begin{align*}
+            2h+1(2h+2) &= 4k^2 + 4k + 2k +2\\
+            &= 2(2k^2 + 3k + 1)
+          \end{align*} 
+          Thus, 2 divides the product of two consecutive numbers (starting with an odd number).
+        \end{enumerate}
+        Therefore, since we have proved both the odd and even starting case, the product of two consecutive numbers is divisible by 2.
+      \end{proof}      
+    \end{lem}
+  \end{multicols}
+  \end{prob}
+
+  \begin{prob}[8]
+    Blah Blah
+  \end{prob}
+
+  \begin{prob}[11]
+    Blah
+  \end{prob}
   \section*{Section 3.2}
+  \begin{prob}[20]
+    Prove that for each natural number $n \geq 6$, $(n + 1)^2 \leq 2^n$.
+    \begin{multicols}{2}      
 
-\section*{Section 3.3}
-
+      \begin{proof}
+        Let $S = \{n \in \mathbb{N} |\ n \geq 6 \wedge (n + 1)^2 \leq 2^n\}$. If $n = 6$, we can see that $(6+1)^2 = 49 \leq 64 = 2^6$. So clearly, $6 \in S$. Assume $m \in S$. Thus, $(m + 1)^2 \leq 2^m$. We want to show that $m + 1 \in S$.
+        \begin{align*}
+          [(m+1) + 1]^2 &= m^2 + 4m + 4\\
+          &= \underbrace{(m^2 + 2m + 1)}_{Ind. Hyp.} + (2m + 3)\\
+          &\leq 2^m + (2m + 3)\\
+          &\leq 2^m + 2^m \tag*{(Lemma)}\\
+          &=2^{m+1}
+        \end{align*}
+        So clearly, $m + 1 \in S$. Therefore, by the Extended Principle of Mathematical Induction, $$\{n \in \mathbb{N} : n \geq 6\} \subseteq S$$
+      \end{proof}     
+      \vfill
+      \columnbreak
+      \begin{lem}
+        For all $k \geq 6$, $2k + 3 \leq 2^k$
+        \begin{proof}
+          Let S = $\{k \in \mathbb{N} |\ k \geq 6 \wedge 2k + 3 \leq 2^k\}$. When $n = 6$, $2(6) + 3 = 15 \leq 64 = 2^6$. It follows that $6 \in S$. Assume $j \in S$. Thus, $2j + 3 \leq 2^j$. Want to show that $j + 1 \in S$.
+          \begin{align*}
+            2^{j+1} &= 2\underbrace{(2^j)}_{Ind. Hyp.}\\
+            &\geq 2(2j+3)\\
+            &= 4j + 6\\
+            &\geq 4j + 6 - (2j + 1)\\
+            &= 2j+5\\
+            &= 2(j+1) + 3
+          \end{align*}
+          We can clearly see that $j + 1 \in S$. Therefore, by the Extended Priciple of Mathematical Induction, $\{k \in N : k \geq 6\} \subseteq S$.
+        \end{proof}
+      \end{lem}
+    \end{multicols}
+  \end{prob}
+  \begin{prob}[25]
+    Blah
+  \end{prob}
+  \begin{prob}[28]
+    Blah
+  \end{prob}
+  \begin{prob}[35]
+    Blah
+  \end{prob}
+  \begin{prob}[36]
+    Blah
+  \end{prob}
 \end{document}
