@@ -7,6 +7,7 @@
 \usepackage{setspace}
 \usepackage{multicol}
 \usepackage{tikz}
+\usepackage{indentfirst}
 
 \onehalfspacing
 
@@ -35,6 +36,18 @@ Math320 \\
 %%% End title %%%
 
 %%% Start Journal Here Here %%%
+
+\section*{One, Two, Three \ldots Infinity (Part 2)}
+In attempting to write this journal about One, Two, Three $\ldots$ Infinity I got a bit sidetracked and digressed to many different topics. In the part of the book about Euler's formula ($V+F=E+2$), Gamow mentioned that the \textit{Four color theorem} was closely related to the formula. This theorem states that a minimum of four colors are needed to color the regions of a map so no adjacent areas share a color. Since the writing of this book, the theorem has been proven. First it was proved by Kenneth Appel and Wolfgang Haken in 1976 with the assistance of computer simulations. They proved, by counter example, that if it was false then there would be a map with a smallest case that required 5 different colors, which there is not. The ideas used for their proof were developed by Heinrich Heesch, who developed a method of proof called \textit{discharging}. I thought this concept was fascinating so I investigated a ``simpler'' example than the \textit{Four color theorem} that involved the discharging method. The theorem I looked as was at follows:
+
+\begin{thm}
+If a planar graph has minimum degree 5, then it either has an edge with endpoints both of degree 5 or one with endpoints of degrees 5 and 6.
+\end{thm}
+
+After looking up many different words and getting lost in reading about topological graph theory, I realized that I would not be able to prove this theorem by myself (maybe in a later journal) so I will instead describe the Discharging Method of proof.
+
+\section*{Discharging Method}
+If we have a \textit{planar graph}, such that for every edge there is no intersection between other edges when drawn on a plane. A \textit{charge} is assigned to faces and vertices of a graph. Sometimes charges are assigned to edges of a graph. The sum of the charges should be some positive number. Keeping track of this sum is the key for this method. Then a set of \textit{discharging} rules are created. The rules must keep the sum of charges the same as when the charges were assigned. These rules combine the charges on the faces, vertices, and possibly edges to some new formation of charges. Some place on the graph will have a positive charge, since our original sum must be the same. This face, vertex, or edge where there is a positive charge will tell use something about the subgraph. I found this method of proof very fascinating and it is very possible I will continue researching into this subject and write next week's journal on it.
 
 
 \end{document}
