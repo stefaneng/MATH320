@@ -1,10 +1,11 @@
 \documentclass{article}
 
 \usepackage[utf8]{inputenc}
-\usepackage[top=1.5in,left=1in,right=1in,bottom=1.5in,headheight=1in]{geometry}
+\usepackage[top=1.5in,left=.9in,right=.9in,bottom=1in,headheight=1in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
 \usepackage{multicol}
 \usepackage{enumerate}
 
@@ -12,7 +13,7 @@
 % Better looking empty set
 \let\emptyset\varnothing
 
-\newtheoremstyle{problem}{\topsep}{\topsep}%
+\newtheoremstyle{problem}{5pt}{\topsep}%
 {}%         Body font
 {}%         Indent amount (empty = no indent, \parindent = para indent)
 {\bfseries}% Thm head font
@@ -26,6 +27,7 @@
 \theoremstyle{plain}
 %\newtheorem{thm}{Theorem}
 \newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
 % No indent for whole page
 \setlength\parindent{0pt}
 
@@ -67,10 +69,12 @@
   %\begin{thm}
   $5 + 10 + 15 + \ldots + 5n = \frac{5n(n + 1)}{2}$
   %\end{thm}
-  \begin{proof}
-    Let S = \{$n \in \mathbb{N}$ $|\ 5 + 10 + 15 + \ldots + 5n = \frac{5n(n + 1)}{2}$\}.
-    Then n = 1 implies, $5(1) = \frac{5(1)(1 + 1)}{2} = 5$, thus $1 \in S$.
-    Assume $n \in S$. Thus, $5 + 10 + 15 + \ldots + 5n = \frac{5n(n + 1)}{2}$ (Induction Hypothesis). Then we want to show $n + 1 \in S$.      
+  \begin{proof}\
+    \begin{enumerate}      
+    \item Let S = \{$n \in \mathbb{N}$ $|\ 5 + 10 + 15 + \ldots + 5n = \frac{5n(n + 1)}{2}$\}.
+    \item Suppose n = 1, $5(1) = \frac{5(1)(1 + 1)}{2} = 5$, thus $1 \in S$.
+    \item Now assume $n \in S$. Thus, $5 + 10 + 15 + \ldots + 5n = \frac{5n(n + 1)}{2}$ (Induction Hypothesis). Then we want to show $n + 1 \in S$.
+    \end{enumerate}    
     \begin{align*}
       [5 + 10 + 15 + \ldots + 5n] + 5(n + 1) &= \frac{5n(n + 1)}{2} + 5(n + 1) \tag*{(Induction hypothesis)}\\
       &= 5(n + 1)(\frac{n}{2} + 1)\\
@@ -79,16 +83,17 @@
     \end{align*}
     Since we can clearly see that $n + 1 \in S$. Therefore, by the Principle of Mathematical Induction, $S = \mathbb{N}$.
   \end{proof}
+
   \end{prob}
   \begin{prob}[1j]
     $7^n - 2^n$ is divisible by 5.
-    \begin{proof}(Induction)
+    \begin{proof}\
       \begin{enumerate}
-      \item S = \{$n \in \mathbb{N}$ $|\ 5 | (7^n - 2^n)$\}
-      \item (Basis) $n = 1$ implies, $5 | (7^1 - 2^1)$. Thus, $5(1) = 5$, so $1 \in S$.
-      \item (Induction Hypothesis) Assume $m \in S$. Then, $5 | (7^m - 2^m)$. Want to show that $m + 1 \in S$.
-      \end{enumerate}
-      \begin{align*}
+        \item Let S = \{$n \in \mathbb{N}$ $|\ 5 | (7^n - 2^n)$\}. 
+        \item Then $n = 1$ implies, $5 | (7^1 - 2^1)$. Thus, $5(1) = 5$, so $1 \in S$. 
+        \item Assume $m \in S$. Then, $5 | (7^m - 2^m)$. We want to show that $m + 1 \in S$.
+        \end{enumerate}
+        \begin{align*}
         7^{m+1} - 2^{m+1} &= 7^{m+1} -7(2^m) + 7(2^m) - 2^{m+1}\\
         &= 7\underbrace{(7^m - 2^m)}_{\text{(Ind. Hyp)}} + 2^m(7 - 2)\\
         &= 7(5k) + 2^m(5)\\
@@ -100,13 +105,13 @@
  
   \begin{prob}[1m]
     $4^n - 1$ is divisible by 3.
-    \begin{proof}(Induction) 
+    \begin{proof}\
       \begin{enumerate}
-      \item S = \{$n \in \mathbb{N}$ $|\ 3 | (4^n - 1)$\}
-      \item (Basis) $n = 1$ implies, $3 | (4^1 - 1)$. Thus, $3(1) = 3$, so $1 \in S$.
-      \item (Induction Hypothesis) Assume $m \in S$. Then, $3 | (4^m - 1)$. Want to show that $m + 1 \in S$.
-      \end{enumerate}
-      \begin{align*}
+        \item Let S = \{$n \in \mathbb{N}$ $|\ 3 | (4^n - 1)$\}. 
+        \item $n = 1$ implies, $3 | (4^1 - 1)$. Thus, $3(1) = 3$, so $1 \in S$. 
+        \item Assume $m \in S$. Then, $3 | (4^m - 1)$. Want to show that $m + 1 \in S$.
+        \end{enumerate}
+        \begin{align*}
         4^{m+1} - 1 &= 4^{m+1} - 4 + 4 - 1\\
         &= 4\underbrace{(4^m - 1)}_{\text{(Ind. Hyp)}} + 3\\
         &= 4(3k) + 3\\
@@ -117,14 +122,14 @@
   \end{prob}
 
   \begin{prob}[4]
-    Blah
+    When the student was trying to prove that $\mathscr{P}(x)$ consists of $2^n$ elements, another student claims that by using what he is trying to prove, the first student's proof is invalid. It is perfectly find to ``use what he is trying to prove'' to show the $1 \in S$ case. The point of the First Principle of Mathematical Induction is to show that the solution set is the natural numbers. We can clearly use the theorem we are trying to prove to show what is in it's solution set or we would have no where to start the proof.
   \end{prob}
 
   \begin{prob}[5]
     The product of any three consecutive natural numbers is divisible by 6.
     \begin{multicols}{2}
     \begin{proof}
-      Let $S = \{n \in \mathbb{N} |\ 6 | n(n+1)(n+2)\}$. Then if $n = 1$, we see that $6|1(1+1)(1+2) = 6|6$, 1 is clearly in S. Assume that $k \in S$ such that, $6|k(k+1)(k+2)$. We want to show that $k+1 \in S$.
+      Let $S = \{n \in \mathbb{N} |\ 6 | n(n+1)(n+2)\}$. If $n = 1$, we see that $6|1(1+1)(1+2) = 6|6$, 1 is clearly in S. Now, assume that $k \in S$ such that, $6|k(k+1)(k+2)$. We want to show that $k+1 \in S$.
       \begin{align*}
         (k+1)&[(k+1)+1][(k+1)+2] \\
         &= k+1(k+2)(k+3)\\
@@ -136,24 +141,22 @@
     \end{proof}
     \vfill
     \columnbreak
-    \begin{lem}
-      The product of two consecutive natural number is divisible by 2
+    \begin{lem}[(For Problem 5)]
+      The product of two consecutive natural numbers is divisible by 2.
       \begin{proof}
-        We will prove the two cases of starting with an odd number, and starting with and even.
-        \begin{enumerate}[{Case} 1)]
-        \item Assume we start with an even number. Let's call that number 2h. Then the next consecutive number is 2h+1. The product of these numbers is as follows:
+        We will prove the two cases of starting with an odd number, and starting with an even.\\        
+        \textbf{Case 1}) Assume we start with an even number. Let's call that number 2h. Then the next consecutive number is 2h+1. The product of these numbers is as follows:
           \begin{align*}
             2h(2h+1) &= 4h^2 + 2h\\
             &= 2(2h^2 + h)
           \end{align*}
-          Since $2h^2 + h \in \mathbb{Z}$, we have shown that 2 divides it.
-        \item Assume now that we start with an odd number. The proof is similar:
+          Since $2h^2 + h \in \mathbb{Z}$, we have shown that 2 divides it.\\[5pt]
+        \textbf{Case 2}) Assume now that we start with an odd number. The proof is similar:
           \begin{align*}
             2h+1(2h+2) &= 4k^2 + 4k + 2k +2\\
             &= 2(2k^2 + 3k + 1)
           \end{align*} 
           Thus, 2 divides the product of two consecutive numbers (starting with an odd number).
-        \end{enumerate}
         Therefore, since we have proved both the odd and even starting case, the product of two consecutive numbers is divisible by 2.
       \end{proof}      
     \end{lem}
@@ -161,11 +164,12 @@
   \end{prob}
 
   \begin{prob}[8]
-    Blah Blah
+    The proof goes wrong when we are showing that 1 is in S. For 1 to be in S, we cannot just union it to the theorem we are trying to prove. If the rest of the proof was correct (which it is not) the student would have proved the weaker statement that $3(1) + 3(2) + \ldots + 3(n) = \frac{(3n^2 + 3n + 3)}{2}$ \textbf{OR} $n = 1$.
   \end{prob}
 
   \begin{prob}[11]
-    Blah
+    This proof is incorrect. In a proof by induction we should start with one side of the equation and try to show the other. This person immediately wrote, $7^{n+1}-2^{n+1} = 5p$, where 5p should have been the goal. The proof continues to derail from this point on and does not show that $7^n - 2^n$ is divisible by 5. It also does not use the induction hypothesis, that $n \in S$ which is a good indicator that the proof is incorrect.
+%At the step, $7(7^n - 2^n) + 2^n(7-2)$ the person trying to solve the proof should have replaced $(7^n - 2^n)$ with the induction hypothesis, that 5 divides it. If there was one more intermediate step to show that 
   \end{prob}
   \section*{Section 3.2}
   \begin{prob}[20]
@@ -203,15 +207,55 @@
     \end{multicols}
   \end{prob}
   \begin{prob}[25]
-    Blah
+    Prove that every natural number $n \geq 6$ can be written as the sum of natural numbers, each of which is a 2 or a 5.   
   \end{prob}
+  \begin{proof}\
+    \begin{enumerate}
+      \item Let $S = \{n \in \mathbb{N}|\ n \geq 6,\text{ and n is a sum of natural numbers, each of which is 2 or 5}\}$.
+      \item Suppose $n = 6$. Then $6 = 2 + 2 + 2$, which clearly shows that $6 \in S$.
+      \item Assume that $n \in S$. We can represent this as $n = 2i + 5j$, ($\sum_{w=1}^{i} 2 = 2i$ and similarly for 5k, so this is a valid way to represent the sum) since we want a sum of 2's and 5's.  We want to show that, $n + 1 \in S$.
+        \begin{align*}
+          n + 1 &= (2i + 5j) + 1 \tag*{(Induction Hypothesis)}\\
+                &= 2i + 5(j-1) + 5 + 1\\
+                &= 2i + 5(j-1) + 6\\
+                &= 2i + 5(j-1) + 2 + 2 + 2\\
+                &= 2(i+3) + 5(j-1)
+        \end{align*}
+        We can clearly see that $n + 1$ is the sum of only 2's and 5's so it follows that $n+1 \in S$. Therefore, by the Extended Principle of Mathematical Induction, $S \subseteq \mathbb{N}$.
+      \end{enumerate}
+  \end{proof}
   \begin{prob}[28]
-    Blah
+    Use the Least-Natural-Number Principle to establish:
+    \begin{prop}[3.2]
+      Every natural number greater than 1 is either a prime number or the product of prime numbers.
+    \end{prop}
+    \begin{proof}
+      Suppose that $T = \{n \in \mathbb{N}\ |$ $n > 1, n \text{ is not prime, and } n \text{ is not the product of primes}\}$ is a non-empty set. Then by the Least Natural Number Principle, the set has a least element, $d$. Since $d \in T$, $d \not = 1$, $d$ is not prime, and $d$ is not a product of primes. Since $d$ is not prime, there exists some numbers $a,b \in \mathbb{Z}$ that divide $d$. Thus, $d = ab$, where $a \not = 1$ and $b \not = 1$ and $a$ and $b$ are not primes. Since $a,b < d$, $a,b \not \in T$ because $d$ is the least element. It follows that $a$ and $b$ are either prime or the product of primes. Since $d = ab$, in all cases $d$ will end up being a product of primes due to $a,b \not \in T$. We have reached a contradiction, thus proving the proposition.
+
+%It follows that, $a$ and $b$ are not in T, because $d$ is the least number in $T$ and $a,b < d$. So if $a$ and $b$ are not in T, then $a$ and $b$ are either prime numbers or the product of primes. If $a$ and $b$ are primes, then we contradict the statements that $d$ is not a product of primes. If $a$ and $b$ are products of primes, then $d$ is also a product of primes, thus leading to a contradiction. If one of them is a prime and the other is a product of primes then we lead to yet another contradiction, $d$ will end up being a product of primes. All paths lead to the contradiction that $d$ is a product of primes.
+    \end{proof}
   \end{prob}
-  \begin{prob}[35]
-    Blah
-  \end{prob}
+  \begin{prob}[35] Cutting up the pie.
+    \begin{enumerate}[a)]
+      \item Well, since we had 1 for 1 dot, 2 for 2 dots, 4 for 3 dots, and 8 for 4 dots. I will take a bet on that it will be 16 for 5 dots. It turns out that yes, a $5^{th}$ dot will make 16 slices.
+      \item Since I think that the pattern is $2^{n-1}$, I will guess that the number of slices made is 32. Turns out I was wrong, there are only 31 slices.
+      \end{enumerate}  
+    \end{prob}
   \begin{prob}[36]
-    Blah
+    Prove that $2^n + 2 < 2 \cdot 2^n$ for all natural numbers $n \geq 2$.
   \end{prob}
+  \begin{proof}\
+    \begin{enumerate}
+      \item Let $S = \{n \in \mathbb{N}\ |\ n \geq 2, 2^n + 2 < 2 \cdot 2^n\}$.
+      \item Suppose $n = 2$. Then $2^2 + 2 = 6 < 8 = 2 \cdot 2^2$, and thus $2 \in S$.
+      \item Assume $n \in S$ (Induction Hypothesis), which means that $2^n + 2 < 2 \cdot 2^n$. We want to show that $n + 1 \in S$.
+        \begin{align*}
+          2 \cdot 2^{n+1} &= 2 \cdot 2 \cdot 2^n\\
+                         &> 2 \cdot (2^n + 2)\tag*{(Induction Hypothesis)}\\
+                         &= 2^{n+1} + 4\\
+                         &> 2^{n+1} + 2
+        \end{align*}
+        We can clearly see that $n + 1 \in S$. Therefore, by the Extended Principle of Mathematical Induction, $S \subseteq \mathbb{N}$.
+      \end{enumerate}
+  \end{proof}
 \end{document}
