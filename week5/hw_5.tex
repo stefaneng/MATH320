@@ -1,0 +1,66 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[top=1.5in,left=.9in,right=.9in,bottom=1in,headheight=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{enumerate}
+
+
+% Better looking empty set
+\let\emptyset\varnothing
+
+\newtheoremstyle{problem}{5pt}{\topsep}%
+{}%         Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}% Thm head font
+{\vspace{5pt}}%        Punctuation after thm head
+{\newline}%     Space after thm head (\newline = linebreak)
+{\thmname{#1}\thmnote{ #3}}%         Thm head spec
+
+\theoremstyle{problem}
+\newtheorem{prob}{Problem}
+
+\theoremstyle{plain}
+%\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+% No indent for whole page
+\setlength\parindent{0pt}
+
+\setlength{\columnsep}{1cm}
+%%% Heading -- No need to edit %%%
+\pagestyle{fancy}
+
+\rhead{
+  Stefan Eng\\
+  Dr. Katherine Stevenson\\
+  Math 320\\
+  10/2/13
+}
+\lhead{
+  39, 40, 53, 84, 94, 95, 101,103, 111, 112, 118
+}
+
+\cfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+%%%
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+% For manual qed box
+\def\bs{\hspace{\stretch1}\ensuremath\blacksquare}
+
+\begin{document}
+
+%%% Make the title %%%
+\begin{center}
+\textsc{\Large Foundations of Higher Mathematics}\\[.3cm]
+\textsc{\Large Homework 5}
+\end{center}
+%%% End title %%%
+
+%%% Start Assignment Here %%%
+
+\end{document}
