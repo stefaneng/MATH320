@@ -13,7 +13,7 @@
 % Better looking empty set
 \let\emptyset\varnothing
 
-\newtheoremstyle{problem}{5pt}{\topsep}%
+\newtheoremstyle{problem}{\topsep}{\topsep}%
 {}%         Body font
 {}%         Indent amount (empty = no indent, \parindent = para indent)
 {\bfseries}% Thm head font
@@ -42,7 +42,7 @@
   10/2/13
 }
 \lhead{
-  39, 40, 53, 84, 94, 95, 101,103, 111, 112, 118
+  39, 40, 53 \& Redo Quiz
 }
 
 \cfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -62,5 +62,107 @@
 %%% End title %%%
 
 %%% Start Assignment Here %%%
+\section*{Section 3.3}
+\begin{prob}[39]\ \\[-1cm]
+  \begin{enumerate}[a)]
+    \item \textit{Four Rings.} Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring and we are done.
+%    \item \textit{Five Rings.}  Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring. Then move the fifth ring to the available peg and move the remaining first, second, third and fourth ring on top of it and we are done.
+ %   \item \textit{Six Rings.}  Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring. Then move the fifth ring to the available peg and move the remaining first, second, third and fourth ring on top of it. Now move the sixth ring to the only available peg. Then move the rest of the rings on top of the sixth ring.
+  %  \item \textit{Seven Rings.} Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring. Then move the fifth ring to the available peg and move the remaining first, second, third and fourth ring on top of it. Now move the sixth ring to the only available peg. Then move the rest of the rings on top of the sixth ring. Then move the seventh ring to the last peg. Now move the tower of six rings on top of the seventh ring and we are done.
+  \end{enumerate}
+\end{prob}
 
+\begin{prob}[40]
+  \begin{multicols}{2}
+    Given a tower with $n$ rings the basic idea is that we must first move away $n-1$ rings, then move the bottom most ring and finally move the $n-1$ back on top of the $nth$ ring. If we let $T(n)$ be the number of moves it takes to move a tower of $n$ rings, we can represent the method of solving the puzzle as the recurrence relation:
+\begin{align*}
+T(n) &= T(n-1) + 1 + T(n - 1)\\
+     &= 2\cdot T(n - 1) + 1
+\end{align*}
+Using the table on the right, with a bit of added information ($T(n)+1$), we can see what the closed form is.
+    \vfill
+    \columnbreak
+    \begin{center}\ \\[1cm]
+      \begin{tabular}{c|c c}
+        n & T(n) & T(n)+1\\
+        \hline
+        0 & 0 & 1\\
+        1 & 1 & 2\\
+        2 & 3 & 4\\
+        3 & 7 & 8\\
+        4 & 15& 16\\
+        5 & 31& 32\\
+        6 & 63& 64
+      \end{tabular}
+  \end{center}
+\end{multicols}
+  We can see that $T(n) + 1$ resembles $2^n$ so let's see if $T(n)$ is $2^n - 1$. 
+\begin{proof}
+If we let $S = \{n \in \mathbb{N}|\ T(n) = 2\cdot T(n-1) + 1 = 2^n -1\}$, we can see that if $n = 1$,
+$$
+  T(1) = 2\cdot T(0) +1 = 1 = 2^1 - 1
+$$
+So $1 \in S$. Now if we assume that $n \in S$, we want to show that $n + 1 \in S$.
+\begin{align*}
+  T(n+1) &= 2\cdot T(n) + 1\\
+         &= 2\cdot (2\cdot T(n-1) + 1) + 1\\
+         &= 2 (2^n - 1) + 1\\
+         &= 2^{n+1} - 2 + 1\\
+         &= 2^{n+1} - 1
+\end{align*}
+Thus, $n + 1 \in S$. So by the Principle of Mathematically Induction, $S = \mathbb{N}$.
+\end{proof}
+\end{prob}
+
+\begin{prob}[53]
+$\displaystyle \sum_{k = 1}^{n}{x^{k-1}}  = \frac{x^n - 1}{x - 1}$ where $x \in \mathbb{R}\text{ and }x \not = 1$
+\end{prob}
+% S S S S S S  SS S S S 
+If $n = 1$, we see that: $\sum_{k = 1}^{1}{x^{k-1}}  = x^0 = \frac{x^1 - 1}{x - 1}$. Now assume $n \in S$. We want to show $n+1 \in S$:
+\begin{align*}
+\displaystyle \sum_{k = 1}^{n+1}{x^{k-1}}  &= \displaystyle \sum_{k = 1}^{n}{x^{k-1}} + x^{n+1-1}\\
+&= \frac{x^n - 1}{x-1} + x^n\\
+&= \frac{x^n - 1 + x^n(x - 1)}{x - 1}\\
+&= \frac{x^n - 1 + x^{n+1} - x^n}{x - 1}\\
+&= \frac{x^{n+1} - 1}{x - 1}
+\end{align*}
+So we can see that $n + 1 \in S$. Therefore, by the Principle of Mathematically Induction, $S = \mathbb{N}$.
+
+\section*{Redo Quiz}
+\begin{prob}[1]\ \\[-1cm]
+  \begin{enumerate}[a)]
+  \item a
+  \item b
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}[2]\ \\[-1cm]
+  \begin{enumerate}[a)]
+    \item a
+    \item b
+      \begin{enumerate}[i.]
+        \item $C \subseteq D$
+        \item $D \subseteq C$
+        \item $C \subseteq E$
+        \item $E \subseteq C$
+        \item $C \subseteq F$
+        \item $F \subseteq C$
+        \item $C \subseteq G$
+        \item $G \subseteq C$
+        \item $D \subseteq E$
+        \item $E \subseteq D$
+\item $E \subseteq D$
+\item $D \subseteq F$
+\item $F \subseteq D$
+\item $D \subseteq G$
+\item $G \subseteq D$
+\item $E \subseteq F$
+\item $F \subseteq E$
+\item $E \subseteq G$
+\item $G \subseteq E$
+\item $F \subseteq G$
+\item $G \subseteq F$
+        \end{enumerate}    
+    \end{enumerate}
+    \end{prob}
 \end{document}
