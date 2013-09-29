@@ -33,6 +33,9 @@
 % No indent for whole page
 \setlength\parindent{0pt}
 
+\theoremstyle{remark}
+\newtheorem{countex}{Counterexample}
+
 \setlength{\columnsep}{1cm}
 %%% Heading -- No need to edit %%%
 \pagestyle{fancy}
@@ -67,7 +70,7 @@
 \section*{Section 3.3}
 \begin{prob}[39]\ \\[-1cm]
   \begin{enumerate}[a)]
-    \item \textit{Four Rings.} Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring and we are done.
+    \item \textit{Four Rings.} Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack, by moving one at a time upon other disc, containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring and we are done.
 %    \item \textit{Five Rings.}  Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring. Then move the fifth ring to the available peg and move the remaining first, second, third and fourth ring on top of it and we are done.
  %   \item \textit{Six Rings.}  Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring. Then move the fifth ring to the available peg and move the remaining first, second, third and fourth ring on top of it. Now move the sixth ring to the only available peg. Then move the rest of the rings on top of the sixth ring.
   %  \item \textit{Seven Rings.} Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring. Then move the fifth ring to the available peg and move the remaining first, second, third and fourth ring on top of it. Now move the sixth ring to the only available peg. Then move the rest of the rings on top of the sixth ring. Then move the seventh ring to the last peg. Now move the tower of six rings on top of the seventh ring and we are done.
@@ -100,7 +103,7 @@ Using the table on the right, with a bit of added information ($T(n)+1$), we can
 \end{multicols}
   We can see that $T(n) + 1$ resembles $2^n$ so let's see if $T(n)$ is $2^n - 1$. 
 \begin{proof}
-If we let $S = \{n \in \mathbb{N}|\ T(n) = 2\cdot T(n-1) + 1 = 2^n -1\}$, we can see that if $n = 1$,
+If we let $S = \{n \in \mathbb{N}\ |\ T(n) = 2\cdot T(n-1) + 1 = 2^n -1\}$, we can see that if $n = 1$,
 $$
   T(1) = 2\cdot T(0) +1 = 1 = 2^1 - 1
 $$
@@ -118,7 +121,7 @@ Thus, $n + 1 \in S$. So by the Principle of Mathematical Induction, $S = \mathbb
 
 \begin{prob}[53]
 
-\end{prob}
+\begin{proof}
 Let $S = \{n \in \mathbb{N}\ |\ \displaystyle \sum_{k = 1}^{n}{x^{k-1}}  = \frac{x^n - 1}{x - 1}$ where $x \in \mathbb{R}\text{ and }x \not = 1 \}$.
 If $n = 1$, we see that: $\displaystyle \sum_{k = 1}^{1}{x^{k-1}}  = x^0 = \frac{x^1 - 1}{x - 1}$. Now assume $n \in S$. We want to show $n+1 \in S$:
 \begin{align*}
@@ -129,7 +132,8 @@ If $n = 1$, we see that: $\displaystyle \sum_{k = 1}^{1}{x^{k-1}}  = x^0 = \frac
 &= \frac{x^{n+1} - 1}{x - 1}
 \end{align*}
 So we can see that $n + 1 \in S$. Therefore, by the Principle of Mathematical Induction, $S = \mathbb{N}$.
-
+\end{proof}
+\end{prob}
 \section*{Redo Quiz}
 \begin{prob}[1]\ \\[-1cm]
   \begin{enumerate}[a)]
@@ -141,30 +145,99 @@ So we can see that $n + 1 \in S$. Therefore, by the Principle of Mathematical In
 
 \begin{prob}[2]\ \\[-1cm]
   \begin{enumerate}[a)]
-    \item a
-    \item b
-      \begin{enumerate}[i.]
-        \item $C \subseteq D$
-        \item $D \subseteq C$
-        \item $C \subseteq E$
-        \item $E \subseteq C$
-        \item $C \subseteq F$
-        \item $F \subseteq C$
-        \item $C \subseteq G$
-        \item $G \subseteq C$
-        \item $D \subseteq E$
-        \item $E \subseteq D$
-\item $E \subseteq D$
-\item $D \subseteq F$
-\item $F \subseteq D$
-\item $D \subseteq G$
-\item $G \subseteq D$
-\item $E \subseteq F$
-\item $F \subseteq E$
-\item $E \subseteq G$
-\item $G \subseteq E$
-\item $F \subseteq G$
-\item $G \subseteq F$
+    \item \begin{tabular}{l l l}
+        \multicolumn{1}{ c }{\textbf{Set}} & \multicolumn{2}{ c }{\textbf{Examples}}\\
+%        \hline
+       $C = \{f(x) \in \mathbf{P}\ |\ f'(0) = 0\}$ & $f(x) = x^2 \in C$ & $f(x) = 2x^2 \in C$\\
+       $D = \{f(x) \in \mathbf{P}\ |\ f(0) = 0\}$ & $f(x) = x \in D$ & $f(x) = 2x \in D$ \\
+       $E = \{f(x) = a_0\ |\ a_0 \in \mathbb{R}\}$ & $f(x) = 1 \in F$ & $f(x) = 2 \in F$ \\
+       $F = \{f(x) \in \mathbf{P}\ |\ f(0) = f(1) = f(2) = 0\}$ & $f(x) = 0 \in F$ & No other element\\
+       $G = \{f(x) \in \mathbf{P}\ |\ f''(0) = f'(0) = 0\}$ & $f(x) = 0 \in G$ & $f(x) = 1 \in G$
+      \end{tabular}
+
+      \item 
+        \begin{enumerate}[i.]
+        \item $C \subseteq D$ is \textbf{false}.
+          \begin{countex}
+            If $f(x) = 1$ then $f'(0) = 0$ but $f(0) \not = 0$.
+          \end{countex}
+        \item $D \subseteq C$ is \textbf{false}.
+          \begin{countex}
+            If $f(x) = 2x$ then $f(0) = 0$ but $f'(x) = 2$ and $f'(0) = 2$.
+          \end{countex}
+        \item $C \subseteq E$ is \textbf{false}.
+          \begin{countex}
+            If $f(x) = x^2$ then $f'(0) = 0$ but $f(x) \not = a_0$ such that $a_0 \in \mathbb{R}$.
+          \end{countex}
+        \item $E \subseteq C$ is \textbf{true}.
+          \begin{proof}
+            If $f(x) \in E$ then $f(x) = a_0$ such that $a_0 \in \mathbb{R}$. Since $f'(x) = 0$, it follows that $f(x) \in C$. Therefore, $E \subseteq C$.
+          \end{proof}
+        \item $C \subseteq F$ is \textbf{false}.
+          \begin{countex}
+            If $f(x) = x^2$ then $f'(0) = 0$ but $f(1) \not = 0$.
+          \end{countex}
+        \item $F \subseteq C$ is \textbf{true}.
+          \begin{proof}
+            The only element in $F$ is $f(x) = 0$. It follows that $f'(0) = 0$, so $f(x) \in C$. Therefore, $F \subseteq C$.
+          \end{proof}
+        \item $C \subseteq G$ is \textbf{false}.
+          \begin{countex}
+            If $f(x) = x^2$ then $f'(x) = 2x$ and $f'(0) = 0$ but $f''(0) \not = 0$
+          \end{countex}
+
+        \item $G \subseteq C$ is \textbf{true}.
+          \begin{proof}
+            If $f(x) \in G$ then $f'(0) = 0$ and $f''(0) = 0$. So clearly $f'(0) = 0$ and thus $f(x) \in C$.
+          \end{proof}
+        \item $D \subseteq E$ is \textbf{false}.
+          \begin{countex}
+            If $f(x) = x$ then $f(0) = 0$ but $f(x) \not = a_0 \in \mathbb{R}$
+          \end{countex}
+        \item $E \subseteq D$ is \textbf{false}.
+          \begin{countex}
+            $f(x) = a_0$ such that $a_0 = 1 \in \mathbb{R}$ but $f(0) \not = 0$.
+          \end{countex}
+        \item $D \subseteq F$ is \textbf{false}.
+          \begin{countex}
+            If $f(x) = x$ then $f(0) = 0$ but $f(1) \not = 0$.
+          \end{countex}
+        \item $F \subseteq D$ is \textbf{true}.
+          \begin{proof}
+            The only polynomial in $F$ is $f(x) = 0$. It follows that $f(0) = 0$. Thus, $f(x) \in D$.
+          \end{proof}
+        \item $D \subseteq G$ is \textbf{false}.
+          \begin{countex}
+            If $f(x) = x^2$ then $f(0) = 0$ but $f''(0) = 2 \not = 0$.
+          \end{countex}
+        \item $G \subseteq D$ is \textbf{false}.
+          \begin{countex}
+            If $f(x) = 1$ then $f'(0) = 0$ and $f''(0) = 0$ but $f(0) = 1 \not = 0$.
+          \end{countex}      
+        \item $E \subseteq F$ is \textbf{false}.
+          \begin{countex}
+            If $f(x) = 1$ then $f(x) \in E$ but $f(0) = 1 \not = 0$ so $f(x) \not \in F$.
+          \end{countex}
+        \item $F \subseteq E$ is \textbf{true}.
+          \begin{proof}
+            If $f(x) \in F$ then $f(x) = 0$ because it is the only element in $F$. Since $0 \in \mathbb{R}$, $f(x) \in E$.
+          \end{proof}
+        \item $E \subseteq G$ is \textbf{true}.
+          \begin{proof}
+            If $f(x) \in E$ then $f(x) = a_0$. It follows that $f'(x) = 0$ and $f'(0) = 0$. Also, $f''(x) = 0$ and $f''(0) = 0$. Thus, $f(x) \in G$, so $E \subseteq G$.
+          \end{proof}
+        \item $G \subseteq E$ is \textbf{true}.
+          \begin{proof}
+            If $f(x) \in G$ then $f''(0) = f'(0) = 0$. Since $f(x) \in \mathbf{P}$, $f(x) = a_0 + a_1x + a_2x^2$. It follows that $f'(x) = a_1 + 2a_2x$ and $f''(x) = 2a_2$. For $f''(0) = f'(0) =0$ to be true, $f'(0) = a_1 = 0$ and $f''(0) = 2a_2 = a_2 = 0$. If $a_1 = a_2 = 0$ then $f(x) = a_0$. Therefore, $f(x) \in E$.
+          \end{proof}
+        \item $F \subseteq G$ is \textbf{true}.
+          \begin{proof}
+            If $f(x) \in F$ then $f(x) = 0$ because it is the only element in $F$. It follows that $f''(0) = f'(0) = 0$, so $f \in G$. Therefore, $F \subseteq G$.
+          \end{proof}
+        \item $G \subseteq F$ is \textbf{false}.
+          \begin{countex}
+            If $f(x) = 1$ then $f''(0) = f'(0) = 0$ but $f(0) \not = 0$ so $f(x) \not \in F$.
+          \end{countex}
         \end{enumerate}    
     \end{enumerate}
     \end{prob}
