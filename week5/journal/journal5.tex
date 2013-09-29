@@ -3,17 +3,18 @@
 \usepackage[utf8]{inputenc}
 \usepackage[top=1.5in,left=1in,right=1in,bottom=1.5in,headheight=1in]{geometry}
 \usepackage{fancyhdr}
-\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
 \usepackage{setspace}
 \usepackage{multicol}
 \usepackage{tikz}
 \usepackage{indentfirst}
+\usepackage{float}
 
-\onehalfspacing
+\doublespacing
 
 % \theoremstyle{theorem}
 \newtheorem*{thm}{Theorem}
-\renewcommand\qedsymbol{}
+\renewcommand{\qedsymbol}{$\blacksquare$}
 
 %%% Heading -- No need to edit %%%
 \pagestyle{fancy}
@@ -38,12 +39,27 @@ Math320 \\
 %%% Start Journal Here %%%
 
 \section*{Euler's Formula and Discharging Method}
-In last week's journal I described the discharging method of proof. This method of proof is famous in proving the Four Color Theorem. When reading more about this method of proof, I found a very cleaver use of it to prove Euler's Formula. 
+In last week's journal I described the discharging method of proof. This method of proof is famous in proving the Four Color Theorem. When reading more about this method of proof, I found a very cleaver use of it to prove Euler's Formula.
 
 \begin{thm}[Euler's Formula]
-
+Given a convex polyhedron, with edges E, vertices V, and faces F.
+$$
+V - E + F = 2
+$$
 \end{thm}
 
+\begin{multicols}{2}
+\begin{proof}
+If we have a convex polyhedron we can represent the edges as E, vertices as V, and the faces as F. Place the polyhedron so that no edges is horizontal. Arranging the polyhedron in this position ensures that we will have an upper most and lower most vertex. Now, place positive charge (+) on each vertex V, a negative charge (-) on each edge E, and a positive charge (+) on each face F. 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=.75]{discharge}
+\end{center}
+\end{figure}
+(Discharging phase as see in figure) Take every charge on a vertex, and every charge on an edge and discharge it horizontally into a face directly horizontal, or counter-clock wise if looking from above. Each face can be thought of as being split in half, and the edges and vertices to the left of it are pushing into it. This action causes alternating charges of (+) and (-) from each edge and vertex along the boundary of the face.. Since the face originally had a (+) charge, it now no longer has a charge. This occurs similarly for every face except for our upper most and lower most vertices. These are the only charges left and they each have (+) charge, which is equal to a total of +2 charge.
+\end{proof}
+
+\end{multicols}
 \end{document}
 
 %%% End assignment %%%
