@@ -71,9 +71,9 @@
 \begin{prob}[39]\ \\[-1cm]
   \begin{enumerate}[a)]
     \item \textit{Four Rings.} Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack, by moving one at a time upon other disc, containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring and we are done.
-%    \item \textit{Five Rings.}  Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring. Then move the fifth ring to the available peg and move the remaining first, second, third and fourth ring on top of it and we are done.
- %   \item \textit{Six Rings.}  Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring. Then move the fifth ring to the available peg and move the remaining first, second, third and fourth ring on top of it. Now move the sixth ring to the only available peg. Then move the rest of the rings on top of the sixth ring.
-  %  \item \textit{Seven Rings.} Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring. Then move the fifth ring to the available peg and move the remaining first, second, third and fourth ring on top of it. Now move the sixth ring to the only available peg. Then move the rest of the rings on top of the sixth ring. Then move the seventh ring to the last peg. Now move the tower of six rings on top of the seventh ring and we are done.
+    \item \textit{Five Rings.}  Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring. Then move the fifth ring to the available peg and move the remaining first, second, third and fourth ring on top of it and we are done.
+    \item \textit{Six Rings.}  Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring. Then move the fifth ring to the available peg and move the remaining first, second, third and fourth ring on top of it. Now move the sixth ring to the only available peg. Then move the rest of the rings on top of the sixth ring.
+    \item \textit{Seven Rings.} Move the first ring to another peg. Then move the second ring to the only available ring. Now move the first ring on top of the second. Next move the third ring to the empty peg. Next move the stack containing the first and the second ring on top of the third ring. After that, move the fourth ring to the available ring. Now move the stack with rings one, two and three on the fourth ring. Then move the fifth ring to the available peg and move the remaining first, second, third and fourth ring on top of it. Now move the sixth ring to the only available peg. Then move the rest of the rings on top of the sixth ring. Then move the seventh ring to the last peg. Now move the tower of six rings on top of the seventh ring and we are done.
   \end{enumerate}
 \end{prob}
 
@@ -98,8 +98,10 @@ Using the table on the right, with a bit of added information ($T(n)+1$), we can
         4 & 15& 16\\
         5 & 31& 32\\
         6 & 63& 64
-      \end{tabular}
+      \end{tabular}\\[.5cm]
+  (Continued on next page)
   \end{center}
+
 \end{multicols}
   We can see that $T(n) + 1$ resembles $2^n$ so let's see if $T(n)$ is $2^n - 1$. 
 \begin{proof}
@@ -119,11 +121,11 @@ Thus, $n + 1 \in S$. So by the Principle of Mathematical Induction, $S = \mathbb
 \end{proof}
 \end{prob}
 
-\begin{prob}[53]
+\begin{prob}[53]\ \\[-1cm]
 
 \begin{proof}
 Let $S = \{n \in \mathbb{N}\ |\ \displaystyle \sum_{k = 1}^{n}{x^{k-1}}  = \frac{x^n - 1}{x - 1}$ where $x \in \mathbb{R}\text{ and }x \not = 1 \}$.
-If $n = 1$, we see that: $\displaystyle \sum_{k = 1}^{1}{x^{k-1}}  = x^0 = \frac{x^1 - 1}{x - 1}$. Now assume $n \in S$. We want to show $n+1 \in S$:
+If $n = 1$, we see that: $\displaystyle \sum_{k = 1}^{1}{x^{k-1}}  = x^0 = \frac{x^1 - 1}{x - 1}$. So $1 \in S$. Now assume $n \in S$. We want to show $n+1 \in S$:
 \begin{align*}
 \displaystyle \sum_{k = 1}^{n+1}{x^{k-1}}  &= \displaystyle \sum_{k = 1}^{n}{x^{k-1}} + x^{n+1-1}\\
 &= \frac{x^n - 1}{x-1} + x^n\\
@@ -171,7 +173,7 @@ So we can see that $n + 1 \in S$. Therefore, by the Principle of Mathematical In
           \end{countex}
         \item $E \subseteq C$ is \textbf{true}.
           \begin{proof}
-            If $f(x) \in E$ then $f(x) = a_0$ such that $a_0 \in \mathbb{R}$. Since $f'(x) = 0$, it follows that $f(x) \in C$. Therefore, $E \subseteq C$.
+            If $f(x) \in E$ then $f(x) = a_0$ such that $a_0 \in \mathbb{R}$. It follows that $f'(x) = 0$. Since $f'(0) = 0$, we can see that $f(x) \in C$. Therefore, $E \subseteq C$.
           \end{proof}
         \item $C \subseteq F$ is \textbf{false}.
           \begin{countex}
