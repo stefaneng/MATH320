@@ -8,8 +8,10 @@
 \usepackage{mathrsfs}
 \usepackage{multicol}
 \usepackage{enumerate}
-%\usepackage{concmath}
-%\usepackage[T1]{fontenc}
+
+\usepackage{tkz-graph}
+\usetikzlibrary{arrows}
+
 
 
 % Better looking empty set
@@ -73,7 +75,14 @@
 %
 
 \begin{prob}[11]
-
+\begin{enumerate}[a)]
+\item \begin{proof}
+Suppose $S \subseteq T$ and $x$ is in the domain of $S$. Then for an arbitrary element $y \in S[x]$, $(x,y) \in S$. Since $S \subseteq T$ and $(x,y) \in S$, then $(x,y) \in T$ and $y \in T[x]$. Therefore, $S[x] \subseteq T[x]$.
+\end{proof}
+\item \begin{proof}
+$(A \times B)[x] = B$ if $x \in A$.
+\end{proof}
+\end{enumerate}
 \end{prob}
 %
 
@@ -87,10 +96,105 @@
 \end{prob}
 %
 
-\begin{prob}[20]
+\begin{multicols}{2}
+\begin{prob}[20a]
+  $R = \{(a,b) \in A \times A:a\text{ divides } b\}$\\[5pt]
 
+  \begin{tikzpicture}
+    % Vertices
+    \Vertex[x=-1, y=0]{1}
+    \Vertex[x=1, y=0]{2}
+    \Vertex[x=1.5, y=1.5]{3}
+    \Vertex[x=-1.5, y=1.5]{4}
+    \Vertex[x=0, y=2.5]{5}
+
+    % Edges
+    \tikzset{EdgeStyle/.append style = {-> }}
+    % 1 | everything
+    \Edge(1)(2) 
+    \Edge(1)(3) 
+    \Edge(1)(4) 
+    \Edge(1)(5) 
+    
+
+    % 2 | 4 
+    \Edge(2)(4)
+
+    % 3 | 
+
+
+    % Loops
+    \Loop[dist=1cm](1)
+    \Loop[dist=1cm,dir=EA](2)
+    \Loop[dist=1cm,dir=EA](3)
+    \Loop[dist=1cm](4)
+    \Loop[dist=1cm](5)
+
+  \end{tikzpicture}
 \end{prob}
-%
+
+\begin{prob}[20b]
+  $U = \{(a,b) \in A \times A:a \not = b\}$\\[5pt]
+  \begin{tikzpicture}
+    % Vertices
+    \Vertex[x=-1, y=0]{1}
+    \Vertex[x=1, y=0]{2}
+    \Vertex[x=1.5, y=1.5]{3}
+    \Vertex[x=-1.5, y=1.5]{4}
+    \Vertex[x=0, y=2.5]{5}
+
+    % Edges
+    \tikzset{EdgeStyle/.append style = {-> }}    
+    \Edge(1)(2) 
+ 
+
+    % Loops
+    \Loop[dist=1cm](1)
+  \end{tikzpicture}
+\end{prob}
+\vfill
+\columnbreak
+
+\begin{prob}[20c]
+  $E = \{(a,b) \in A \times B:a + b \text{ is even}\}$\\[5pt]
+  \begin{tikzpicture}
+    % Vertices
+    \Vertex[x=-1, y=0]{1}
+    \Vertex[x=1, y=0]{2}
+    \Vertex[x=1.5, y=1.5]{3}
+    \Vertex[x=-1.5, y=1.5]{4}
+    \Vertex[x=0, y=2.5]{5}
+
+    % Edges
+    \tikzset{EdgeStyle/.append style = {-> }}
+    \Edge(1)(2) 
+
+    % Loops
+    \Loop[dist=1cm](1)
+  \end{tikzpicture}
+\end{prob}
+
+\begin{prob}[20d]
+  $O = \{(a,b) \in A \times B:a + b \text{ is odd}\}$\\[5pt]
+  \begin{tikzpicture}
+    % Vertices
+    \Vertex[x=-1, y=0]{1}
+    \Vertex[x=1, y=0]{2}
+    \Vertex[x=1.5, y=1.5]{3}
+    \Vertex[x=-1.5, y=1.5]{4}
+    \Vertex[x=0, y=2.5]{5}
+
+    % Edges
+    \tikzset{EdgeStyle/.append style = {-> }}
+    \Edge(1)(2) 
+
+    % Loops
+    \Loop[dist=1cm](1)
+  \end{tikzpicture}
+\end{prob}
+% 
+\end{multicols}
+
 
 \begin{prob}[25]
 
