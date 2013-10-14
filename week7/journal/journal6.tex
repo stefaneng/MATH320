@@ -6,14 +6,11 @@
 \usepackage{amsmath,amsthm,amsfonts,amssymb}
 \usepackage{setspace}
 \usepackage{multicol}
-\usepackage{tikz}
-\usepackage{indentfirst}
 \usepackage{float}
-
-\doublespacing
 
 % \theoremstyle{theorem}
 \newtheorem*{thm}{Theorem}
+\newtheorem*{lemma}{Lemma}
 \renewcommand{\qedsymbol}{$\blacksquare$}
 
 %%% Heading -- No need to edit %%%
@@ -37,7 +34,53 @@ Math320 \\
 %%% End title %%%
 
 %%% Start Journal Here %%%
+This week when I was doing my probability homework I saw my book had a not quite complete proof of a fun concept that I thought I would write up a complete proof. I dislike using formula's without at least attempting to prove them.
+\begin{multicols}{2}
+\section*{Poisson Distribution}
+Suppose we are trying figure out how many cars will pass by a location in some time interval. Let's say we know the average from watching over a long period of time and we determine that it is $\lambda$, which is our expected value. We know from a binomial random variable based on $n$ trials and success probability $p$ that $E(Y) = n \cdot p$ and thus, $E(Y) = \lambda = n \cdot p$. In this case, $n$ is the number of intervals, and $p$ is the probability of a car passing. Since we have a binomial probability:
+$$
+P(Y = y) = \displaystyle {n \choose y} p^y (1 - p)^{n-y}
+$$
+It follows from $\lambda = n \cdot p$ that:
+$$
+{n \choose y}%
+%
+\left( 
+  \frac{\lambda}{n} 
+\right)^{y}%
+%
+\left(
+  1 - \frac{\lambda}{n}
+\right)^{n-y}
+$$
 
+Now we are left with the problem of choosing $n$. We only have probability of \textit{one} event happening in $\frac{\lambda}{n}$ time. So if our value for $n$ is too small, then multiple cars could pass by in one time interval. The solution to this is to see what happens when we shorten the time interval to only allow for one car to pass at a time. To decrease $\frac{\lambda}{n}$ to as small as possible, we take the limit as $n$ goes to infinity. (First we need a lemma)
+\begin{lemma}
+$$\lim_{x \to \infty} \left( 1 + \frac{a}{x} \right)^{x} = e^a$$
+Let $\displaystyle \frac{1}{n} = \displaystyle \frac{a}{x}$. Then $x = na$.
+\begin{align*}
+\lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^{na} &=  \left( \lim_{n \to \infty}(1 + \frac{1}{n} )^{n} \right)^a\\
+&= e^a
+\end{align*}
+\end{lemma}
+\vfill
+\columnbreak
+Now we have all the parts needed to figure out the problem.
+\begin{align*}
+  &\lim_{n \to \infty} {n \choose y}\left(\frac{\lambda}{n}\right)^{y}\left(1 - \frac{\lambda}{n}\right)^{n-y}\\
+  &=\lim_{n \to \infty}\frac{n \cdot (n - 1) \cdots (n - y + 1)}{y!} \left( \frac{\lambda}{n} \right)^y \left(1 - \frac{\lambda}{n} \right)^{n-y}\\
+  &= \frac{\lambda^y}{y!} \lim_{n \to \infty}\frac{n \cdot (n - 1) \cdots (n - y + 1)}{n^y} \left(1 - \frac{\lambda}{n} \right)^{n-y}\\
+  &= \frac{\lambda^y}{y!} \lim_{n \to \infty}\frac{n \cdot (n - 1) \cdots (n - y + 1)}{n^y} \left(1 - \frac{\lambda}{n} \right)^{n} \left(1 - \frac{\lambda}{n} \right)^{-y}\\
+  &= \frac{\lambda^y}{y!} \lim_{n \to \infty}\frac{n \cdot (n - 1) \cdots (n - y + 1)}{n^y} \left(1 - \frac{\lambda}{n} \right)^{n} &&\\
+  &= \frac{\lambda^y}{y!} \lim_{n \to \infty}\frac{n \cdot (n - 1) \cdots (n - y + 1)}{n^y} \left( e^{-\lambda} \right)\\
+  &= \frac{\lambda^y}{y!} \left( e^{-\lambda} \right)
+\end{align*}
+So just from the binomial distribution we can conclude that given the mean, or expected value $\lambda$, we can conclude that the probability of seeing $y$ cars is
+$$
+ p(y) = \displaystyle \frac{\lambda^y}{y!} e^{-y}
+$$
+If we generalize this to any event and not just cars passing by we have the \textit{Poisson Distribution}.
+\end{multicols}
 \end{document}
 
 %%% End assignment %%%
