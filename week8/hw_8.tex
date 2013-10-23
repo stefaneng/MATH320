@@ -82,9 +82,85 @@
       b^2 &= a^2\\
       f(b) &= f(a)
     \end{align*}
-    Thus $b \backsimeq a$. So $\backsimeq$ is symmetric.
+    Thus $b \backsimeq a$. So $\backsimeq$ is symmetric.\\
+    \textbf{Transitive.} If $a \backsimeq b$ and $b \backsimeq c$ then $f(a) = a^2$, $f(b) = b^2$, $f(c) = c^2$ and $f(a) = f(b)$, $f(b) = f(c)$.
+    \begin{align*}
+      f(a) &= f(b)\\
+      &= f(c)
+    \end{align*}
+  \end{proof}
+  $[7] = \{-7,7\}$
+\end{prob}
+
+\begin{prob}[37]
+  Set $S = \{(x,y) \in \mathbb{R} \times \mathbb{R} : y - x \text{ is an integer.}\}$
+  \begin{enumerate}[a)]
+  \item \begin{proof}
+      \textbf{Reflexive.} If $x \in \mathbb{R}$, then $x - x = 0 \in \mathbb{Z}$. Thus, $(x,x) \in S$.\\
+      \textbf{Symmetric.} If $(x,y) \in S$, then $y - x \in \mathbb{Z}$. It follows that $x - y \in -\mathbb{Z}$ and since $\mathbb{Z} = -\mathbb{Z}$, so $x -y \in \mathbb{Z}$. Thus, $(y,x) \in S$.\\
+      \textbf{Transitive.} Let $(x,y) \in S$ and $(y,z) \in S$. Thus, $y-x = a \in \mathbb{Z}$ and $z - y = b \in \mathbb{Z}$. It follows that $y - x + z - y = a + b$, and thus $z - x = a + b$. Since $a + b \in \mathbb{Z}$, $(x,z) \in S$.
+    \end{proof}
+  \item $[\pi] = \{\pi,\pi+1,\pi+2,\pi+3\}$
+  \item Any integer belongs to $[-17]$
+  \end{enumerate}
+\end{prob}
+%
+
+\begin{prob}[40]\ \\[-1cm]
+  \begin{enumerate}[a)]
+  \item \begin{proof}
+      \textbf{Reflexive.} If $f \in S$ then $f$ is differentiable function $f(x)$. We can see that $f'(x) = 1 \cdot f'(x)$ and since $1$ is non-zero, $f \backsimeq f$. Therefore, $\backsimeq$ is reflexive.\\
+    \textbf{Symmetric.} Let $f \backsimeq g$. Then $f'(x) = k g'(x)$ where $k$ is a non-zero number. It follows that $g'(x) = \frac{1}{k} f'(x)$, so $g \backsimeq f$. Therefore, $\backsimeq$ is symmetric.\\
+    \textbf{Transitive.} If $f \backsimeq g$ and $g \backsimeq h$ then $f'(x) = k g'(x)$ and $g'(x) = j h'(x)$, where $k$ and $j$ are non-zero. It follows that $f'(x) = k j h'(x)$, from substituting $g'(x)$. Since $k$ and $j$ were non-zero, $jk$ is non-zero, so $f \backsimeq h$. Therefore, $\backsimeq$ is transitive.
+    Thus, proving that $\backsimeq$ is an equivalence relation on $S$.
+  \end{proof}
+  \item When $f(x) = x^2 + 17x + 11$\\ $[f] = \{x^2 + 17x + 12, x^2 + 17x + 13, x^2 + 17x + 14, x^2 + 17x + 15,\ldots\}$
+\end{enumerate}
+\end{prob}
+%
+
+\begin{prob}[42]\ \\[-1cm]
+  \begin{enumerate}[a)]
+    \item \begin{proof}
+        \textbf{Reflexive.} Let $x \in X$. Then $(x,x) \in R$ because $R$ is an equivalence relation on $X$ and $(x,x) \in S$ because $S$ is an equivalence relation on $X$. So, $(x,y) \in R \cap S$.\\
+        \textbf{Symmetric.} Let $(x,y) \in R \cap S$. Then $(x,y) \in R$ and $(x,y) \in S$. Since $R$ and $S$ are both equivalence relations on $X$, $(y,x) \in S$ and $(y,x) \in R$. Therefore, $(y,x) \in R \cap S$.\\
+        \textbf{Transitive.} Let $(x,y) \in R \cap S$ and $(y,z) \in R \cap S$. It follows that $(x,y),(y,z) \in R$ and $(x,y),(y,z) \in S$. Since $R$ and $S$ are equivalence relations on $X$, they are both transitive and thus, $(x,z) \in R$ and $(x,z) \in S$. Therefore, $(x,z) \in R \cap S$.
+        %\textbf{Reflexive.} Let $R$ be an equivalence relation on $X$. It follows that $R \cap R = R$, so $R \cap R$ is an equivalence relation. Thus, $R \cap R$ is reflexive on $X$.\\
+        %\textbf{Symmetric.} Let $R \cap S$ be an equivalence relation on $X$. It follows that $R \cap S = S \cap R$, so $S \cap R$ is also a relation on $X$. Thus, $R \cap S$ is symmetric on $X$.\\
+        %\textbf{Transitive.} Let $R \cap S$ and $S \cap T$ be equivalence relations on $X$. Then 
+        
+      \end{proof}
+    \item $x \in X, (R \cap S)[x] = R[x] \cap S[x]$\begin{proof}
+        ($\subseteq$) Let $y \in (R \cap S)[x]$. Then $(x,y) \in (R \cap S)$. It follows that $(x,y) \in R$ and $(x,y) \in S$. Thus, $y \in R[x]$ and $y \in S[x]$. Therefore, $y \in R[x] \cap S[x]$.\\
+        ($\supseteq$) Let $y \in R[x] \cap S[x]$. Then $y \in R[x] \cap S[x]$. It follows that $y \in R[x]$ and $y \in S[x]$. Thus, $(x,y) \in R$ and $(x,y) \in S$. So, $(x,y) \in R \cap S$. Therefore, $(R \cap S)[x]$
+        
+      \end{proof}
+    \end{enumerate}
+    
+\end{prob}
+%
+
+\begin{prob}[65]
+  For the equivalence relation $a \equiv b \pmod{9}$ we have that for each natural number $n$, $[10^n] = [1]$.
+  \begin{proof}
+    We will show this by induction. If $n = 1$, then $[10^1] = [1]$. It follows from the definition of addition for congruence classes that, $[10] = [9] \oplus [1]$. We can see that $9 \equiv 0 \pmod{9}$, because $9\big| 9 - 9$. So, $[9] = 0$ and thus,
+    \begin{align*}
+      [10] &= [9] \oplus [1]\\
+      &= [0] \oplus [1]\\
+      &= [1]
+    \end{align*}
+    Thus proving the $n=1$ case. Now assume $n$, so $[10^n] = [1]$. We want to show that $n + 1$ is true. The results follow from the definitions of addition and multiplication for the congruence classes:
+    \begin{align*}
+      [10^{n+1}] &= [10 \cdot 10^n]\\
+      &= [10] \odot [10^n]\\
+      &= [1] \odot [10^n]&&\text{As shown in the n=1 case}\\
+      &= [1] \odot [1]&&\text{From the } n \text{ assumption}\\
+      &= [1]
+    \end{align*}
+    Thus, $n + 1$ is true. Therefore, by PMI, $[10^n] = [1]$ for $a \equiv b \pmod{9}$.
   \end{proof}
 \end{prob}
+%
 
 
 \end{document}
