@@ -79,12 +79,29 @@
 %
 
 \begin{prob}[68]
+($\impliedby$) If $n$ dividing $a$ and $n$ dividing $b$ have the same remainder, then $a = cn + r$ and $b = dn + r$. It follows that:
+\begin{align*}
+  a - b &= (cn + r) - (dn + r)\\
+  &= cn - dn\\
+  &= n(c -d)
+\end{align*}
+It follows that $n\big | a - b$ and thus $a \equiv b \pmod{n}$.\\
 
+($\implies$) Assume $a \equiv b \pmod{n}$. Then $n \big | a - b$. It follows that $nk = a - b$. Apply the division algorithm on $n$ and $b$. It follows that $b = nq + r$.
+\begin{align*}
+  nk &= a - b\\
+  a &= nk + b\\
+  a &= nk + (nq + r)\\
+  a &= n(k+q) + r
+\end{align*}
+We see that both $a$ and $b$ have the same remainder $r$.
 \end{prob}
 %
 
-\begin{prob}[70] (Induction on m)
-
+\begin{prob}[70]\ \\[-1cm]
+  \begin{proof}
+    Let $m = 1$. If $a \equiv b \pmod{n}$, then $a^1 \equiv b^1 \pmod{n}$. So $a^m \equiv b^m \pmod{n}$. Thus, $m = 1$ is a solution. Now assume that if $a \equiv b \pmod{n}$ then $a^m \equiv b \pmod{n}$. Assume $a \equiv b \pmod{n}$. It follows that $a^m \equiv b^m \pmod{n}$. From Theorem 4.10: $a \cdot a^m \equiv b \cdot b^m \pmod{n}$. Thus, $a^{m+1} \equiv b^{m+1} \pmod{n}$.
+  \end{proof}
 \end{prob}
 % 
 
