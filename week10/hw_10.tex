@@ -1,0 +1,165 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[top=1.5in,left=.9in,right=.9in,bottom=1in,headheight=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{enumerate}
+
+
+
+% Better looking empty set
+\let\emptyset\varnothing
+
+\newtheoremstyle{problem}{\topsep}{\topsep}%
+{}%         Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}% Thm head font
+{\vspace{5pt}}%        Punctuation after thm head
+{\newline}%     Space after thm head (\newline = linebreak)
+{\thmname{#1}\thmnote{ #3}}%         Thm head spec
+
+\theoremstyle{problem}
+\newtheorem{prob}{Problem}
+
+\theoremstyle{plain}
+%\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+% No indent for whole page
+\setlength\parindent{0pt}
+
+\theoremstyle{remark}
+\newtheorem{countex}{Counterexample}
+
+\setlength{\columnsep}{1cm}
+%%% Heading -- No need to edit %%%
+\pagestyle{fancy}
+
+\rhead{
+  Stefan Eng\\
+  Dr. Katherine Stevenson\\
+  Math 320\\
+  11/13/13
+}
+\lhead{
+  Chapter 5 Worksheet
+}
+
+\cfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+%%%
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+% For manual qed box
+\def\bs{\hspace{\stretch1}\ensuremath\blacksquare}
+
+\begin{document}
+
+%%% Make the title %%%
+\begin{center}
+\textsc{\Large Foundations of Higher Mathematics}\\[.3cm]
+\textsc{\Large Homework 10}
+\end{center}
+%%% End title %%%
+
+%%% Start Assignment Here %%%
+\begin{enumerate}
+  % Problem 1
+  \item 
+    \begin{enumerate} 
+    \item $f(x) = 3x - 5$
+    \item $f(x) = x^2 + 5$
+    \item $f(x) = x^2 - 5x - 6$
+    \item $f(x) = x^3 - 5$
+    \item $f(x) = x^3 - x$        
+    \end{enumerate}
+
+    % Problem 2
+    \item 
+      \begin{proof}
+        Assume $f$ is strictly increasing. 
+        We want to show $f$ is one-to-one. 
+        Take an arbitary $x$ and $y$, $x \not = y$. 
+        Assume $x$ is the smaller value.
+        Since $f$ is strictly increasing and $x < y$, it follows that $f(x) < f(y)$.
+        If $y$ is the smaller value, 
+        swapping $x$ and $y$ in the previous argument we see that $f(y) < f(x)$.
+        Thus, $f(x) \not = f(y)$. 
+        So $f$ is a one-to-one function. 
+
+        Now we want to show that $f^{-1}$ is strictly increasing...
+      \end{proof}
+
+      % Problem 3
+    \item (F\&P {\small\#}7)
+      \begin{enumerate} 
+        % A
+      \item
+        % B
+      \item
+        % C
+      \item
+      \end{enumerate}
+
+      % Problem 4
+    \item (F\&P {small\#}7)
+      \begin{enumerate} % Let $f: X \to Y$, let $A \subseteq X$, and let $B \subseteq Y$.
+        \item a
+        \item b
+      \end{enumerate} 
+      % Problem 5
+    \item $Tr : M_2(\mathbb{R}) \to \mathbb{R}$\\
+      \textbf{Non-Injective}: Let $A = 
+      \begin{bmatrix}
+        1 & 0\\
+        0 & 1
+      \end{bmatrix}$
+      and $B =
+      \begin{bmatrix}
+        1 & 1\\
+        0 & 1
+      \end{bmatrix}$. $A \not = B$ but $Tr(A) = 2 = Tr(B)$ so $Tr$ is not injective.\\
+
+      % I DON'T THINK THIS IS RIGHT?
+      \textbf{Surjective}: Let y be an arbitrary element in $\mathbb{R}$. Then $Tr(A) = a_{11} + a_{22}$. One solution is, $A = 
+      \begin{bmatrix}
+        a_{11} & 0\\
+        0 & a_{22}
+      \end{bmatrix}$. So $Tr$ is surjective. 
+
+      % Problem 6
+    \item \textbf{Non-Injective}: Let $A = 
+      \begin{bmatrix}
+        1 & 1\\
+        1 & 1
+      \end{bmatrix}$
+      and $B =
+      \begin{bmatrix}
+        2 & 2\\
+        2 & 2
+      \end{bmatrix}$. $A \not = B$ but $Det(A) = 0 = Det(B)$ so $Det$ is not injective.\\
+      \textbf{Surjective}: Assume $A \in M_2(\mathbb{R})$...
+      % Problem 7
+    \item 7
+      % Problem 8
+    \item \begin{proof}
+        Assume $g \circ f$ is injective. 
+        We want to show that $f$ is injective. 
+        Assume an arbitrary $a,b \in X$ such that $f(a) = f(b)$. 
+        Let's define $y = f(a) = f(b)$. 
+        Now we want to show that $a = b$. 
+        We know that $g \circ f$ is injective, so $g(f(a)) = g(f(b))$. 
+        It follows that $g(y) = g(y)$. 
+        Since $g \circ f$ in an injection, we can conclude $a = b$. 
+        Therefore, $f$ is injective.
+      \end{proof}
+    \end{enumerate}
+
+
+
+
+\end{document}
