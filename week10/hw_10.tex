@@ -71,15 +71,54 @@
   % Problem 1
   \item 
     \begin{enumerate} 
-    \item $f(x) = 3x - 5$
-    \item $f(x) = x^2 + 5$
-    \item $f(x) = x^2 - 5x - 6$
-    \item $f(x) = x^3 - 5$
-    \item $f(x) = x^3 - x$        
+    \item $f(x) = 3x - 5$\\
+      \textbf{Injective}: Let $f(x) = f(y)$. Then $3x - 5 = 3y - 5$. It follows that:
+      \begin{align*}
+        3x &= 3y\\
+        x &= y
+      \end{align*}\\
+      \textbf{Surjective}: Let $y = f(x)$. It follows that $y = 3x - 5$. Thus:
+      \begin{align*}
+        y &= 3x - 5\\
+        y - 5 &= 3x\\
+        \frac{y - 5}{3} &= x
+      \end{align*}
+      So, $f(\frac{y-5}{3}) = y$ is a solution.
+    \item $f(x) = x^2 + 5$\\
+      \textbf{Not injective}: Let $a = 1$ and $b = -1$. We can see that $a \not = b$, but $f(a) = 1^2 + 5 = 6 = f(b)$.\\
+      \textbf{Not surjective}: Take $f(x) = 0$. 
+      \begin{align*}
+        x^2 + 5 &= 0\\
+        x^2 &= - 5
+      \end{align*}
+      Since $x$ has no solutions in $\mathbb{R}$, $f$ is not a surjection.
+    \item $f(x) = x^2 - 5x - 6$\\
+      \textbf{Not injective}: Let $a = 6$ and $b = -1$. Clearly $a \not = b$, but:
+      \begin{align*}
+        f(x) &= x^2 - 5x - 6\\
+        &= (x - 6)(x + 1)\\
+      \end{align*}
+      Thus, $f(6) = 0 = f(-1)$.\\
+
+      \textbf{Not Surjective}: Notice that $f'(x) = 2x - 5$. There is a critical point at $x = \frac{5}{2}$. (Minimum) It follows that $f(\frac{5}{2}) = -\frac{49}{4}$. Any $y$ value less than this value is impossible, and hence does not have a corresponding $x$ value. Thus, $f$ is not surjective.
+
+    \item $f(x) = x^3 - 5$\\
+      \textbf{Injective}: Let $f(x) = f(y)$ it follows that:
+      \begin{align*}
+        x^3 - 5 &= y^3 - 5\\
+        x^3 &= y^3\\
+        x &= y
+      \end{align*}\\
+      \textbf{Surjective}: Let $y = f(x)$. It follows that $y = x^3 - 5$, so a solution is $x = \displaystyle \sqrt[3]{y + 5}$
+
+      % E
+    \item $f(x) = x^3 - x$\\
+      \textbf{Not injective}. Let $x = 1$ and $y = -1$. We can see that $x \not = y$, but $f(x) = 1 - 1 = 0$ and $f(y) = -1 + 1 = 0$. Thus, $f$ is not an injection.\\
+      \textbf{Surjective?}...      
     \end{enumerate}
 
     % Problem 2
-    \item 
+    \item (F\&P {\small \#}4)\\[-.7cm]
       \begin{proof}
         Assume $f$ is strictly increasing. 
         We want to show $f$ is one-to-one. 
@@ -91,26 +130,45 @@
         Thus, $f(x) \not = f(y)$. 
         So $f$ is a one-to-one function. 
 
-        Now we want to show that $f^{-1}$ is strictly increasing...
+        Now we want to show that $f^{-1}$ is strictly increasing. 
+%        Since $f$ is strictly increasing,
+%        Take $g = f^{-1}$.
+        Let $a$ and $b$ be arbitrary elements of $\mathbb{R}$ such that $f(a) < f(b)$
+        It follows that $a < b$ from the fact that $f$ is strictly increasing.
+        Assume $f^{-1}(c) < f^{-1}(d)$.
+        We can see that $f(f^{-1}(c)) = c$, and $f(f^{-1}(d)) = d$.
+        It follows that $c < d$, since $f$ is strictly increasing.
+        Therefore, $f^{-1}$ is strictly increasing.
       \end{proof}
 
       % Problem 3
-    \item (F\&P {\small\#}7)
+    \item (F\&P {\small \#}7)
       \begin{enumerate} 
         % A
-      \item
+      \item One-to-one but not onto: $f(n) = 5n$
         % B
-      \item
+      \item Onto but not one-to-one: $f(n) = \begin{cases}
+          n & \text{if n is even}\\
+          n-1 & \text{if n is odd}
+        \end{cases}$
         % C
-      \item
+      \item Neither onto nor one-to-one: $f(n) = n \mod 2$
+        % D
+      \item $X = \{1,2,3,4\}$\\
+        There is \textit{not} a function that is one-to-one that does not map $X$ onto $X$ because one-to-one implies a unique pairing of elements in the domain to the codomain. Since $X$ is mapping to itself, every element will be mapped onto. There is \textit{not} a function that maps X onto X that is not one-to-one from similar logic. Every element in the range must be mapped onto the same set. 
       \end{enumerate}
-
+     
       % Problem 4
-    \item (F\&P {small\#}7)
+    \item (F\&P {\small\#}73)
       \begin{enumerate} % Let $f: X \to Y$, let $A \subseteq X$, and let $B \subseteq Y$.
-        \item a
-        \item b
-      \end{enumerate} 
+        \item Prove that if $y \in B$, then $f^{-1}(y) \subseteq f^{-1}(B)$.
+          \begin{proof} Assume $y \in B$. It follows that $ y \in Y$ because $B \subseteq Y$. Also assume that $x \in f^{-1}(y)$. Want to show $x \in f^{-1}(B)$ (or $f(x) \in B$). It follows that $f(x) \in \{y\}$. Thus, $f(x) = y$. It follows that $f(x) = y \in B$, or $x \in f^{-1}(B)$.
+          \end{proof}
+        \item Prove that if $f(x) \in f(A)$ and $f$ is a one-to-one map, then $x \in A$.
+          \begin{proof}
+            Assume $f(x) \in f(A)$ and $f$ is injective. By Theorem 5.11 (part d), $A = f^{-1}(f(A))$, since $f$ is one-to-one. It follows that $x \subseteq f^{-1}(f(x))$. So, since $f(x) \in f(A)$, and $A = f^{-1}(f(A))$, $x \in A$.
+          \end{proof}
+        \end{enumerate} 
       % Problem 5
     \item $Tr : M_2(\mathbb{R}) \to \mathbb{R}$\\
       \textbf{Non-Injective}: Let $A = 
@@ -124,8 +182,7 @@
         0 & 1
       \end{bmatrix}$. $A \not = B$ but $Tr(A) = 2 = Tr(B)$ so $Tr$ is not injective.\\
 
-      % I DON'T THINK THIS IS RIGHT?
-      \textbf{Surjective}: Let y be an arbitrary element in $\mathbb{R}$. Then $Tr(A) = a_{11} + a_{22}$. One solution is, $A = 
+      \textbf{Surjective}: Let y be an arbitrary element in $\mathbb{R}$ such that $y = Tr(A)$. It follows that $y = a_{11} + a_{22}$. One solution is, $A = 
       \begin{bmatrix}
         a_{11} & 0\\
         0 & a_{22}
@@ -142,10 +199,36 @@
         2 & 2\\
         2 & 2
       \end{bmatrix}$. $A \not = B$ but $Det(A) = 0 = Det(B)$ so $Det$ is not injective.\\
-      \textbf{Surjective}: Assume $A \in M_2(\mathbb{R})$...
+      \textbf{Surjective}: Assume $y \in \mathbb{R}$ such that, $y = Det(A)$. By definition, a solution to $y = Det(A)$ is 
+      $$A = 
+      \begin{bmatrix}
+        a_{11} & a_{12}\\
+        a_{21} & a_{22}
+      \end{bmatrix}$$
+Where $y = a_{11}a_{22} - a_{21}a_{12}$.
       % Problem 7
-    \item 7
-      % Problem 8
+    \item \textbf{Not injective}: Let $A = 
+      \begin{bmatrix}
+        -1 & 1\\
+        -1 & 1
+      \end{bmatrix}$ and $B = 
+      \begin{bmatrix}
+        -2 & 2\\
+        -2 & 2
+      \end{bmatrix}$ $A \not = B$, but $Char(A) = x^2 - 0x + 0 = Char(B)$, so $Char$ is not injective.\\      
+      % This actually may be surjective?
+           \textbf{Surjective?:} Take $p \in P_2$ such that $p = ax^2 + bx + c$. We want to see if every solution in $P_2$ has a corresponding element in $M_2(\mathbb{R})$.
+           \begin{align*}
+             ax^2 + bx + c &= x^2 - Tr(A)x + Det(A)\\
+             (a-1)x^2 + (b+Tr(A))x + c - Det(A) &= 0             
+           \end{align*}
+           Then, to solve, we see if there are any solutions from part of the quadratic formula:
+           \begin{align*}
+             &  \displaystyle \sqrt{b^2 - 4ac}\\
+             &= \displaystyle \sqrt{(b+Tr(A))^2 -4(a-1)(c-Det(A))}
+           \end{align*}
+I assume that for some $A$ this works... I may have just overlooked a simple counter example.
+           % Problem 8
     \item \begin{proof}
         Assume $g \circ f$ is injective. 
         We want to show that $f$ is injective. 
