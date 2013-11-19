@@ -4,7 +4,7 @@
 \usepackage[top=1.5in,left=.9in,right=.9in,bottom=1in,headheight=1in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
 \usepackage{mathrsfs}
 \usepackage{multicol}
 \usepackage{enumerate}
@@ -46,7 +46,8 @@
   11/20/13
 }
 \lhead{
-  Chapter 5 67, 69, 70, 72, 75
+  Chapter 5\\
+  67, 69, 70, 72, 75
 }
 
 \cfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -132,5 +133,29 @@ Same as part $b$, $mn = 4\mathbb{N}$.
 % f
 \item 
 \end{enumerate}
+\end{prob}
+
+% 72
+\begin{prob}
+  Assume $B,C \in \mathcal{P}(X)$ such that $B \not = C$. 
+  That is, there exists an $x \in B$ and $x \not \in C$, or $x \not \in B$ and $x \in C$. 
+  Both sides of the disjunction can be obtained by switching $B$ for $C$. Take $C_x(B) = X - B$. 
+  Since $x \in B$, $x \not \in X - B$. 
+  Now take $C_X(C) = X - C$. 
+  It follows that since $x \in B$ and $B \subseteq X$, that $x \in X$. 
+  Since $x \in X$, and $x \not \in C$, $x \in X - C$. 
+  Since there exists $x \in X - B$ and $x \not \in X - C$, then $X - B \not = X - C$ and thus, $C_x(B) \not = C_x(C)$
+
+NEED TO SHOW $C_X^{-1}$.
+\end{prob}
+
+% 75
+\begin{prob}[75]
+($\Leftarrow$) Assume $f(A) \cap f(B) = f(A \cap B)$. Let $x_1, x_2 \in X$ such that $f(x_1) = f(x_2)$. Want to show that $x_1 = x_2$. Since $A$ and $B$ are sets, represent $x_1$ and $x_2$ as one element sets, $\{x_1\}$ and $\{x_2\}$. It follows that $f(\{x_1\}) \cap f(\{x_2\}) = f(\{x_1\} \cap \{x_2\})$. Since $f(x_1) = f(x_2)$, and the intersection of two identical sets is itself, $f(\{x_1\}) = f(\{x_1\} \cap \{x_2\})$. It follows that:
+$$
+  f(\{x_1\}) = \{f(x)|\ x \in \{x_1\} \text{ and } x \in \{x_2\}\}  
+$$
+It follows that $x_1 = x_2$. Therefore, $f$ is injective.\\
+($\Rightarrow$) Assume $f$ is $injective$.
 \end{prob}
 \end{document}
