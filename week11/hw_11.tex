@@ -121,32 +121,70 @@ Since $3x^2 = -1$ has no solutions in $\mathbb{R}$, $f^{-1}([1,2]) = \{0\}$.
 $= 1\cdot n$ where $n$ is even, so $f(A)$ is all even numbers.
 % b
 \item $f(B) = \{mn|\ (m,n) \in \mathbb{N} \times \mathbb{N}: m \text{ and } n \text{ are even}\}$\\
-If $m$ and $n$ are even then, $m = 2j$ and $n = 4k$, so $mn = 4jk$. Thus, $f(B) = 4\mathbb{N}$.
+If $m$ and $n$ are even then, $m = 2j$ and $n = 2k$, so $mn = 4jk$. Thus, $f(B) = 4\mathbb{N}$.
 % c
 \item $f(C) = \{mn|\ (m,n) \in \mathbb{N} \times \mathbb{N}: m \text{ is even or } n \text{ is even}\}$\\
-Case 1: $m$ even, $b$ even\\
-Same as part $b$, $mn = 4\mathbb{N}$.
+\textbf{Case 1}: $m$ even, $b$ even\\
+Same as part $b$, $mn = 4\mathbb{N}$.\\
+\textbf{Case 2}: $m$ even, $b$ odd\\
+$2k \cdot 2j+1 = 2(2jk + k)$ so $mn$ is even.\\
+\textbf{Case 3}: $m$ odd, $b$ even\\
+$mn$ is even.\\
+
+Since all $4\mathbb{N}$ are in $2\mathbb{N}$, $f(C) = 2\mathbb{N}$
 % d
-\item
-% e
-\item 
-% f
-\item 
+\item \begin{align*}
+    f^{-1}(D) &= \{m,n \in \mathbb{N}|\ f(m,n) \in D\}\\
+    &= \{m,n \in \mathbb{N}|\ f(m,n) \in \{x \in \mathbb{N}|\ x \text{ is odd}\}\\  
+    &= \{m,n \in \mathbb{N}|\ m\cdot n \in \{x \in \mathbb{N}|\ x \text{ is odd}\}\\  
+  \end{align*}
+  $m\cdot n$ is only odd when $m$ is odd and $n$ is odd. ($m = 2k + 1$, $n = 2j + 1$, $mn = 4jk + 2j + 2k + 1 = 2(2jk + j + k) + 1)$. So, $f^{-1}(D) = (m,n)$ such that $m$ is odd and $n$ is odd.
+  % e
+\item \begin{align*}
+    f^{-1}(E) &= \{m,n \in \mathbb{N}|\ f(m,n) \in \{n \in \mathbb{N}|\ x \text{ is even} \}\\
+    &= \mathbb{N} \times \mathbb{N}
+  \end{align*}
+Because with even $m$ and odd $n$, $m\cdot n$, similarly for odd $m$ and even $n$. So, all pairs of $\mathbb{N}$ are in the set.
+  % f
+\item \begin{align*}
+    f^{-1}(F) &= \{m,n \in \mathbb{N}|\ f(m,n) = 14\}\\
+    &= \{ (1,14), (14,1), (2,7), (7,2) \}
+  \end{align*}
 \end{enumerate}
 \end{prob}
 
-% 72
-\begin{prob}
-  Assume $B,C \in \mathcal{P}(X)$ such that $B \not = C$. 
-  That is, there exists an $x \in B$ and $x \not \in C$, or $x \not \in B$ and $x \in C$. 
-  Both sides of the disjunction can be obtained by switching $B$ for $C$. Take $C_x(B) = X - B$. 
-  Since $x \in B$, $x \not \in X - B$. 
-  Now take $C_X(C) = X - C$. 
-  It follows that since $x \in B$ and $B \subseteq X$, that $x \in X$. 
-  Since $x \in X$, and $x \not \in C$, $x \in X - C$. 
-  Since there exists $x \in X - B$ and $x \not \in X - C$, then $X - B \not = X - C$ and thus, $C_x(B) \not = C_x(C)$
+\begin{prob}[70]
+Let $f: \mathbb{R} \to \mathbb{R}$ be defined by $f(x) = \lfloor x \rfloor$, and let $A = [3,5] \cup (7,9) \cup (11,15)$.
+\begin{itemize}
+% a
+\item $f(A) = \{f(a)|\ a \in A\} = [3,5] \cup [7,8] \cup [11,14]$
+% b
+\item $f^{-1}(A) = \{x \in \mathbb{R}|\ f(x) \in A\} = [3,6) \cup [8,9) \cup [12,15)$.
+% c
+\item $f(f^{-1}(A)) = f([3,6) \cup [8,9) \cup [12,15)) = [3,5] \cup \{8\} \cup [12,14)$
+% d
+\item $f^{-1}(f(A)) = \{x \in \mathbb{R}|\ f(x) \in f(A)\} = [3,6] \cup [7,9) \cup [11,15)$
+\end{itemize}
+\end{prob}
 
-NEED TO SHOW $C_X^{-1}$.
+% 72
+\begin{prob}[72]\ \\[-1cm]
+\begin{proof}
+  Assume $A,B \in \mathcal{P}(X)$ such that $A \not = B$. 
+  That is, there exists an $x \in A$ and $x \not \in B$, or $x \not \in A$ and $x \in B$.
+  Assume $x \in A$ and $a \not \in B$. (Identical argument follows for $x \not \in A$, $x \in B$)
+  Since, $x \in A$, $x \not \in X - A$. 
+  It follows that since $x \in A$ and $A \subseteq X$, that $x \in X$. 
+  Now take $C_X(B) = X - B$. 
+  Since $x \in X$, and $x \not \in B$, $x \in X - B$. 
+  Since there exists $x \in X - A$ and $x \not \in X - B$, then $X - A \not = X - B$ and thus, $C_x(A) \not = C_x(B)$. Therefore, we have shown that $C_x$ is injective.\\
+\end{proof}
+
+\begin{align*}
+  C_X^{-1}(A) &= \{B \in \mathcal{P}(X)|\ C_x(B) = A\}\\
+  &= \{B \in \mathcal{P}(X)|\ X - B = A \}
+\end{align*}
+So $C^{-1}_X$ is just the set that is the complement of $A$.
 \end{prob}
 
 % 75
@@ -156,6 +194,22 @@ $$
   f(\{x_1\}) = \{f(x)|\ x \in \{x_1\} \text{ and } x \in \{x_2\}\}  
 $$
 It follows that $x_1 = x_2$. Therefore, $f$ is injective.\\
-($\Rightarrow$) Assume $f$ is $injective$.
+($\Rightarrow$) 
+Assume $f$ is $injective$. 
+We want to show, $f(A) \cap f(B) = f(A \cap B)$.\\
+($\subseteq$)
+Assume an arbitrary $y \in f(A) \cap f(B)$. 
+It follows that $y \in f(A)$ and $y \in f(B)$. 
+By definition, $y \in \{f(a)|\ a \in A\}$ and $y \in \{f(b)|\ b \in B\}$. 
+%Since $A$ and $B$ are subsets of $X$, $a \in X$ and $b \in X$.
+We can see that $y \in Im(f)$ because $A$ and $B$ are subsets of $X$.
+It follows that there is an unique element, call it $x$, such that $f(x) = y$.
+Since $y \in f(A)$ and $y \in f(B)$, this unique $f(x) \in f(A)$ and $f(x) \in f(B)$.
+Since $x$ is unique, $x \in A$ and $x \in B$.
+So, $x \in A \cap B$.
+It follows that $f(x) \in f(A \cap B)$.
+Finally, $y \in f(A \cap B)$.\\
+($\supseteq$) Assume an arbitrary $y \in f(A \cap B)$. Since $y \in Im(f)$, there is a unique element, $x$, such that $f(x) = y$. So, $x \in A \cap B$. It follows that $x \in A$, and $x \in B$. Thus, $f(x) \in f(A)$ and $f(x) \in f(B)$. Therefore, since $f(x) = y$, $y \in f(A) \cap f(B)$.\\
+Proving both subsets, we can conclude that $f(A) \cap f(B) = f(A \cap B)$.
 \end{prob}
 \end{document}
