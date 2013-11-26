@@ -1,0 +1,165 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[top=1.5in,left=.9in,right=.9in,bottom=1in,headheight=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{enumerate}
+
+
+
+% Better looking empty set
+\let\emptyset\varnothing
+
+\newtheoremstyle{problem}{\topsep}{\topsep}%
+{}%         Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}% Thm head font
+{\vspace{5pt}}%        Punctuation after thm head
+{\newline}%     Space after thm head (\newline = linebreak)
+{\thmname{#1}\thmnote{ #3}}%         Thm head spec
+
+\theoremstyle{problem}
+\newtheorem{prob}{Problem}
+
+\theoremstyle{plain}
+%\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+% No indent for whole page
+\setlength\parindent{0pt}
+
+\theoremstyle{remark}
+\newtheorem{countex}{Counterexample}
+
+\setlength{\columnsep}{1cm}
+%%% Heading -- No need to edit %%%
+\pagestyle{fancy}
+
+\rhead{
+  Stefan Eng\\
+  Dr. Katherine Stevenson\\
+  Math 320\\
+  11/27/13
+}
+\lhead{
+  Analysis Worksheet
+}
+
+\cfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+%%%
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+% For manual qed box
+\def\bs{\hspace{\stretch1}\ensuremath\blacksquare}
+
+\begin{document}
+
+%%% Make the title %%%
+\begin{center}
+  \textsc{\Large Foundations of Higher Mathematics}\\[.3cm]
+  \textsc{\Large Homework 12 (Analysis 1)}
+\end{center}
+%%% End title %%%
+
+%%% Start Assignment Here %%%
+\begin{enumerate}
+  % 1
+\item 1
+  % 2
+\item 2
+  % 3
+\item 
+  % a
+  Assume $a,b \in \mathbb{R}$ with $a < b$ and $a \geq 0$. Thus, $a - b > 0$.
+  % b
+  By the archimedian property, there is an $n \in \mathbb{N}$ such that $\frac{1}{n} < b - a$.
+  % c
+  It follows that:
+  \begin{align*}
+    \frac{1}{n} &< b - a\\
+    \frac{1}{n} + a &< b\\
+    a &< b - \frac{1}{n}
+  \end{align*}
+  % d
+  Let $m$ be the smallest number such that $m > na$, 
+  % BY WHAT? I don't think this is right
+  by the archimedian property, since $na \in \mathbb{R}_{>0}$
+  % e
+  Since $m$ is the smallest integer greater than $na$, then $m - na \leq 0$
+  ...
+  % 4
+\item % 
+  % a  
+  Let $T = \{t \in \mathbb{R}|\ t^2 < 2\}$.
+  Take $0 \in \mathbb{R}$. 
+  We can see that $0^2 < 2$, so $0 \in \mathbb{R}$. 
+  Thus, $T$ is non-empty.
+  Observe that $2 \in \mathbb{R}$.
+  $2^2 \not < 2$, so $2 \not \in T$.
+  Also, $0 < 2$, so $2$ is an upper bound of $T$. 
+  Call $U$ the set of all upper bounds for $T$.
+  Since $2 \in U$, then $U$ is non-empty.
+  By the well-ordering principle, there must be a least element of $U$.
+  Call this least element $x$.
+  % b
+  Now we want to show that $x^2 = 2$, by showing the $x^2 \not < 2$ and $x^2 \not > 2$.
+  % c
+  % Aiming for contradiction
+  Assume $x^2 < 2$.
+  % d
+  Take $n \in \mathbb{N}$ such that, $(x + \frac{1}{n})^2 = x^2 + \frac{2x}{n} + \frac{1}{n^2}$.
+  This yields the inequality $x^2 + \frac{2x}{n} + \frac{1}{n^2} \leq x^2 + \frac{2x+1}{n}$, because
+  \begin{align*}
+    x^2 + \frac{2x}{n} + \frac{1}{n^2} &\leq x^2 + \frac{2x+1}{n}\\
+    \frac{2x}{n} + \frac{1}{n^2} \leq \frac{2x+1}{n}\\
+    \frac{1}{n^2} \leq 1
+  \end{align*}  
+  % e
+  Since $x^2 < 2$, then $0 < 2 - x^2$.
+ % Also, $2x + 1 > 0$, because
+ % \begin{align*}
+ %   2x + 1 &> 0\\
+ %   2x > -1\\
+ %   x > -\frac{1}{2}\\
+ %   x^2 > \frac{1}{4}
+ % \end{align*}
+ % Which is clearly true since $x^2 < 2$.
+  % f
+  By the archimedian principle, there exists an $n_0 \in \mathbb{N}$ such that $\frac{1}{n_0} < \frac{2 - x^2}{2x+1}$.
+  % g
+  Multiplying both sides by $2x+1$, we get $\frac{2x + 1}{n_0} < 2 - x^2$.
+  % h
+  Thus, $x^2 + \frac{2x+1}{n_0} < 2$.
+  % i
+  As was shown earlier, $(x + \frac{1}{n})^2 = x^2 + \frac{2x}{n} + \frac{1}{n^2} \leq x^2 + \frac{2x + 1}{n}$.
+  So, (x + \frac{1}{n_0})^2 < 2.
+  % j
+  Thus, $x + \frac{1}{n_0} \in T$, by definition of our set $T$.
+  This contradicts the fact that $x$ is the least upper bound, because $x + \frac{1}{n_0} > x$, and anything largest than the least upper bound is not in $T$. 
+  So, $x^2 \not < 2$.
+  % k
+  Now assume that $x^2 > 2$
+  It follows that $x^2 - 2 > 0$.
+  % Need an argument that $\frac{x^2 - 2}{2x} > 0$,
+  Since $\frac{x^2 - 2}{2x} > 0$, by the archimedian principle, there exists $m_0 \in \mathbb{N}$, such that $\frac{1}{m_0} < \frac{x^2 - 2}{2x}$
+  % l
+  Multiplying both sides by $2x$ leaves us with, $\frac{2x}{m_0} < x^2 - 2$.
+  Thus, $2 < x^2 - \frac{2x}{m_0}$.
+  % m
+  Now, observe that $(x - \frac{1}{m_0})^2 = x^2 - \frac{2x}{m_0} + \frac{1}{m_0} > x^2 - \frac{2x}{m_0}.
+  It follows that $2 < (x - \frac{1}{m_0})^2$.
+  % n
+  By our definition for $T$, $x - \frac{1}{m_0} \not \in T$. But $x - \frac{1}{m_0} < x$, which contraditcts the fact that $x$ is the least upper bound.
+  Thus, $x^2 \not > 2$.
+  
+  % 
+  Since $x^2 \not < 2$ and $x^2 \not > 2$, $x^2 = 2$. 
+  
+\end{enumerate}
+
+\end{document}
