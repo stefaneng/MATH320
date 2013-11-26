@@ -69,9 +69,40 @@
 %%% Start Assignment Here %%%
 \begin{enumerate}
   % 1
-\item 1
+\item $A = [2,4)$.\\
+  % Show 5 is an upper bound
+  Observe that $5 \in \mathbb{R}$.
+  Take an arbitrary $a \in A$.
+  Then, $2 \leq a < 4$, and $4 < 5$, so $a < 5$.
+  Thus, $5$ is an upper bound of $A$.
+  % Show 5 is not the least upper bound.
+  We can see that $4.5 \in \mathbb{R}$, and $a < 4 < 4.5$, so $4.5$ is an upper bound.
+  But $4.5 < 5$, so $5$ is not the least upper bound.
+  % Prove that 2.1 is not a lower bound  for A
+  We can see that $2.05 \in A$, because $2 \leq 2.05 < 4$.
+  Also, $2.05 < 2.1$, so $2.1$ is not a lower bound for A.
+  % Prove that 4 the least least upper bound for A
+  % Show that 4 is an upper bound
+  % Show that < 4 is not an upper bound
+  Take $a \in A$. Then $2 \leq a < 4$. So $4 \not \in A$, and $a < 4$, so $4$ is an upper bound.
   % 2
-\item 2
+\item $S = \{x \in \mathbb{R}|\ \exists n \in \mathbb{N} \text{such that } x = 1 \frac{1}{n}\}$.\\
+  Observe that $S \subseteq [0,1)$. % Obvious? or does it need proof
+    Take $s \in S$.
+    Then, $0 \leq s < 1$.
+    We can see that $5 \in \mathbb{R}$ and $5 > 1$, so $s < 1 < 5$.
+    Thus, all $s \in S$ are smaller than $5$, so $5$ is an upper bound for $S$.
+    Now observe $4 \in \mathbb{R}$, $1 < 4$, so $s < 4$.
+    Thus, $4$ is an upper bound as well.
+    But $4 < 5$ so $5$ is not the least upper bound.
+    % Find the upper bound
+    We know that $S > 1$.
+    Call $S - 1 = \epsilon > 0$
+    By the archimedian principle, there exists an $n \in \mathbb{N}$ such that $\frac{1}{n} < \epsilon$.
+    % ...
+    % ...
+    
+
   % 3
 \item 
   % a
