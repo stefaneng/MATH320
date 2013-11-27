@@ -1,0 +1,124 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[top=1.5in,left=.9in,right=.9in,bottom=1in,headheight=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{enumerate}
+
+\usepackage{setspace}
+
+\onehalfspacing
+
+
+% Better looking empty set
+\let\emptyset\varnothing
+
+\newtheoremstyle{problem}{\topsep}{\topsep}%
+{}%         Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}% Thm head font
+{\vspace{5pt}}%        Punctuation after thm head
+{\newline}%     Space after thm head (\newline = linebreak)
+{\thmname{#1}\thmnote{ #3}}%         Thm head spec
+
+\theoremstyle{problem}
+\newtheorem{prob}{Problem}
+
+\theoremstyle{plain}
+%\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+% No indent for whole page
+\setlength\parindent{0pt}
+
+\theoremstyle{remark}
+\newtheorem{countex}{Counterexample}
+
+\setlength{\columnsep}{1cm}
+%%% Heading -- No need to edit %%%
+\pagestyle{fancy}
+
+\rhead{
+  Stefan Eng\\
+  Dr. Katherine Stevenson\\
+  Math 320\\
+  12/4/13
+}
+\lhead{
+  Analysis Worksheet 2
+}
+
+\cfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+%%%
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+% For manual qed box
+\def\bs{\hspace{\stretch1}\ensuremath\blacksquare}
+
+\begin{document}
+
+%%% Make the title %%%
+\begin{center}
+  \textsc{\Large Foundations of Higher Mathematics}\\[.3cm]
+  \textsc{\Large Homework 13 (Analysis 2)}
+\end{center}
+%%% End title %%%
+
+%%% Start Assignment Here %%%
+\begin{enumerate}
+  % 1
+\item Show that the sequence $<\frac{1}{n^p}>$ converges if $p > 1$. Find its limit.
+  % Claim
+  $\lim_{n \to \infty} \frac{1}{n^p} = 0$\\
+  \begin{proof}
+    Given $\epsilon > 0$,
+    $|\frac{1}{n^p} - 0| = |\frac{1}{n^p}| = \frac{1}{n^p}$
+    % Want to show that 1/n^p < epsilon for all n > M
+    Since $\epsilon > 0$, by the archimedian property, there exists an $M$ such that,
+    $\frac{1}{M} < \epsilon$.
+    % Goal: 1/n^p < epsilon
+    % Prove 1/n^p < 1/n
+    % then 1/n < 1/M
+    % => 1/n^p < epsilon
+    % Put into align?
+    Observe that
+    $\frac{1}{n^p} < \frac{1}{n}$
+    $1 < \frac{n^p}{n}$
+    $1 < n^{p-1}$.
+    And since $p > 1$, clearly this inequality holds..     
+  \end{proof}
+
+  % 2
+\item Show that the sequence $<\frac{2n}{3n+7}>$ converges. Find its limit.
+  % Claim
+  $lim_{n \to \infty} \frac{\frac{2n}{3n+7}} = \frac{2}{3}$\\  
+  $|\frac{2n}{3n+7} - \frac{2}{3}| = |\frac{3(2n) - 2(3n + 7)}{3(3n + 7)}|$
+
+  % 3
+\item (F\&P \#10) Prove that the sequence $<\frac{5n}{3n+1}>$ converges. 
+
+  % 4
+\item (F\&P \#6) Let $<x_n>$ be a sequence with the property that there is a real number $A$ and a natural number $N$ such that $x_n = A$ for all $n > N$. Prove that $<x_n> \to A$.
+
+  % 5
+\item (F\&P \#7) Show that $[0,1]$ is a neighborhood of $\frac{7}{8}$.
+
+  % 6
+\item Using no negative words say what it would mean for a sequence $<a_n>$ not to converge. Then, show that $<3^{2n-1}>$ does not converge.
+  % Hints
+  % a) Take an arbitrary $M \in \mathbb{R}$
+  % b) Explain why $3^{2N-1} \geq M$ if and only if 
+  %    (2N - 1)log_{10}(3) > log_{10}(M).
+  % c) Use this to get an express of the form $3^{2N-1} \geq M$ if and only if
+  %    $N \geq$ (an expression involving $M$ and logs).
+  % d) Now choose $N$ accordingly.
+
+  
+\end{enumerate}
+
+\end{document}
