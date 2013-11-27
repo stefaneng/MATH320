@@ -71,10 +71,9 @@
   % 1
 \item $A = [2,4)$.\\
   % Show 5 is an upper bound
-  Observe that $5 \in \mathbb{R}$.
   Take an arbitrary $a \in A$.
   Then, $2 \leq a < 4$, and $4 < 5$, so $a < 5$.
-  Thus, $5$ is an upper bound of $A$.
+  Since $5 \in \mathbb{R}$, $5$ is an upper bound of $A$.
   % Show 5 is not the least upper bound.
   We can see that $4.5 \in \mathbb{R}$, and $a < 4 < 4.5$, so $4.5$ is an upper bound.
   But $4.5 < 5$, so $5$ is not the least upper bound.
@@ -88,12 +87,12 @@
   Now assume that $a < 4$.
   Then, $4 - a = \epsilon > 0$.
   It follows that $a < a + \frac{1}{2} \epsilon < 4$, so $a + \frac{1}{2} \epsilon \in A$.  
-  Thus, $a$ is not an upper bound.
+  Thus, $a$ is not an upper bound, because $a < a + \frac{1}{2} \epsilon$, and $a + \frac{1}{2} \epsilon \in A$.
   % Conclusion
   Therefore, $4$ is the least upper bound of $A$.
 
 % 2
-\item $S = \{x \in \mathbb{R}|\ \exists n \in \mathbb{N} \text{such that } x = 1 - \frac{1}{n}\}$.\\
+\item $S = \{x \in \mathbb{R}|\ \exists n \in \mathbb{N} \text{ such that } x = 1 - \frac{1}{n}\}$.\\
   Observe that $S \subseteq [0,1)$. % Obvious? or does it need proof
     Take $s \in S$.
     Then, $0 \leq s < 1$.
@@ -110,16 +109,14 @@
     So, $1 - \epsilon \in S$.
     Therefore, since all $s < 1$ is in $S$, and $1$ is an upper bound, $1$ is the least upper bound.
     
-    % ...
-    % ...
-    
-
   % 3
 \item 
   % a
   Assume $a,b \in \mathbb{R}$ with $a < b$ and $a \geq 0$. Thus, $a - b > 0$.
+
   % b
   By the archimedian property, there is an $n \in \mathbb{N}$ such that $\frac{1}{n} < b - a$.
+
   % c
   It follows that:
   \begin{align*}
@@ -127,17 +124,31 @@
     \frac{1}{n} + a &< b\\
     a &< b - \frac{1}{n}
   \end{align*}
-  % d
-  Let $m$ be the smallest number such that $m > na$, 
-  % BY WHAT? I don't think this is right
-  by the archimedian property, since $na \in \mathbb{R}_{>0}$
-  % e
-  Since $m$ is the smallest integer greater than $na$, then $m - na \leq 0$
-  
-  % f
-  
-  
 
+  % d  
+  Since $a \geq 0$ and $n > 0$ by defintion of the natural numbers, $na \in \mathbb{R} > 0$.  
+  Apply the archimedian property, so there exists and $n' \in \mathbb{N}$ such that $\{n' \in \mathbb{N}|\ n' > na \}$.
+  So the set is non-empty, and by the well ordering principle there exists a least element $m$ such that $m > na$.
+
+  % e
+  Observe $m - 1$. It is clearly not in the set because $m$ is the least element.
+  Thus, $m - 1 \leq na < m$, and $a < \frac{m}{n}$.
+
+  % f
+  Add one to both sides of the equation to get $m \leq na + 1$.
+
+  % g
+  Since $a < b - \frac{1}{n}$ and $m \leq na + 1$, $m \leq n(b - \frac{1}{n}) + 1$.
+  % h
+  Which reduces to $m < nb$, and thus $\frac{m}{n} < b$.
+  % i
+  Thus, $a < \frac{m}{n} < b$.
+
+  % j
+  Now assume that $a < b < 0$.
+  It follows that $-a > -b > 0$.
+  Using the same argument as before, (switching -a for b, and -b for a), we conclude that $-a > -\frac{m}{n} > -b$, and thus $a < \frac{m}{n} < b$.
+  
   % 4
 \item % 
   % a  
