@@ -9,6 +9,9 @@
 \usepackage{multicol}
 \usepackage{enumerate}
 
+\usepackage{setspace}
+
+\onehalfspacing
 
 
 % Better looking empty set
@@ -46,7 +49,7 @@
   11/27/13
 }
 \lhead{
-  Analysis Worksheet
+  Analysis Worksheet 1
 }
 
 \cfoot{Page\ \thepage\ of\ \pageref{LastPage}}
@@ -93,7 +96,7 @@
 
 % 2
 \item $S = \{x \in \mathbb{R}|\ \exists n \in \mathbb{N} \text{ such that } x = 1 - \frac{1}{n}\}$.\\
-  Observe that $S \subseteq [0,1)$. % Obvious? or does it need proof
+  Observe that $S \subseteq [0,1)$.
     Take $s \in S$.
     Then, $0 \leq s < 1$.
     We can see that $5 \in \mathbb{R}$ and $5 > 1$, so $s < 1 < 5$.
@@ -128,7 +131,7 @@
   % d  
   Since $a \geq 0$ and $n > 0$ by defintion of the natural numbers, $na \in \mathbb{R} > 0$.  
   Apply the archimedian property, so there exists and $n' \in \mathbb{N}$ such that $\{n' \in \mathbb{N}|\ n' > na \}$.
-  So the set is non-empty, and by the well ordering principle there exists a least element $m$ such that $m > na$.
+  So the set is non-empty, and by the well ordering (least natural number) principle there exists a least element $m$ such that $m > na$.
 
   % e
   Observe $m - 1$. It is clearly not in the set because $m$ is the least element.
@@ -178,14 +181,14 @@
   \end{align*}  
   % e
   Since $x^2 < 2$, then $0 < 2 - x^2$.
- % Also, $2x + 1 > 0$, because
- % \begin{align*}
- %   2x + 1 &> 0\\
- %   2x > -1\\
- %   x > -\frac{1}{2}\\
- %   x^2 > \frac{1}{4}
- % \end{align*}
- % Which is clearly true since $x^2 < 2$.
+  % Also, $2x + 1 > 0$, because
+  % \begin{align*}
+  %   2x + 1 &> 0\\
+  %   2x > -1\\
+  %   x > -\frac{1}{2}\\
+  %   x^2 > \frac{1}{4}
+  % \end{align*}
+  % Which is clearly true since $x^2 < 2$.
   % f
   By the archimedian principle, there exists an $n_0 \in \mathbb{N}$ such that $\frac{1}{n_0} < \frac{2 - x^2}{2x+1}$.
   % g
@@ -202,7 +205,7 @@
   % k
   Now assume that $x^2 > 2$
   It follows that $x^2 - 2 > 0$.
-  % Need an argument that $\frac{x^2 - 2}{2x} > 0$,
+  % Need an argument that $\frac{x^2 - 2}{2x} > 0$,  
   Since $\frac{x^2 - 2}{2x} > 0$, by the archimedian principle, there exists $m_0 \in \mathbb{N}$, such that $\frac{1}{m_0} < \frac{x^2 - 2}{2x}$
   % l
   Multiplying both sides by $2x$ leaves us with, $\frac{2x}{m_0} < x^2 - 2$.
