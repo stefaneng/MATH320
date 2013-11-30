@@ -38,6 +38,18 @@
 \theoremstyle{remark}
 \newtheorem{countex}{Counterexample}
 
+\newcommand{\ceil}[1] {
+  \left\lceil #1 \right\rceil
+}
+
+\newcommand{\abs}[1] {
+  \left| #1 \right|
+}
+
+\newcommand{\myln}[1] {
+  \ln{\left( #1 \right)}
+}
+
 \setlength{\columnsep}{1cm}
 %%% Heading -- No need to edit %%%
 \pagestyle{fancy}
@@ -72,42 +84,88 @@
 %%% Start Assignment Here %%%
 \begin{enumerate}
   % 1
-\item Show that the sequence $<\frac{1}{n^p}>$ converges if $p > 1$. Find its limit.
-  % Claim
-  $\lim_{n \to \infty} \frac{1}{n^p} = 0$\\
+\item Show that the sequence $<\frac{1}{n^p}>$ converges if $p > 1$. Find its limit.\\  
+  Claim: $\displaystyle \lim_{n \to \infty} \frac{1}{n^p} = 0$
   \begin{proof}
-    Given $\epsilon > 0$,
-    $|\frac{1}{n^p} - 0| = |\frac{1}{n^p}| = \frac{1}{n^p}$
+    Let $\epsilon > 0$,
+    We want $\abs{\frac{1}{n^p} - 0} = \abs{\frac{1}{n^p}} = \frac{1}{n^p} < \epsilon$.
+    \begin{align*}
+      \frac{1}{n^p} &< \epsilon\\
+      1 &< n^p \epsilon\\
+      \frac{1}{\epsilon} &< n^p\\
+      \myln{\frac{1}{\epsilon}} &< p \myln{n}\\
+      \frac{\myln{\frac{1}{\epsilon}}}{p} &< \myln{n}
+    \end{align*}
+    ...
+    % This needs to break somewhere if p <= 1?????
+
     % Want to show that 1/n^p < epsilon for all n > M
-    Since $\epsilon > 0$, by the archimedian property, there exists an $M$ such that,
-    $\frac{1}{M} < \epsilon$.
+    %Since $\epsilon > 0$, by the archimedian property, there exists an $M$ such that,
+    %$\frac{1}{M} < \epsilon$.
     % Goal: 1/n^p < epsilon
     % Prove 1/n^p < 1/n
     % then 1/n < 1/M
     % => 1/n^p < epsilon
     % Put into align?
-    Observe that
-    $\frac{1}{n^p} < \frac{1}{n}$
-    $1 < \frac{n^p}{n}$
-    $1 < n^{p-1}$.
-    And since $p > 1$, clearly this inequality holds..     
+    %Observe that
+    %$\frac{1}{n^p} < \frac{1}{n}$
+    %$1 < \frac{n^p}{n}$
+    %$1 < n^{p-1}$.
+    %And since $p > 1$, clearly this inequality holds..     
   \end{proof}
 
   % 2
-\item Show that the sequence $<\frac{2n}{3n+7}>$ converges. Find its limit.
+\item Show that the sequence $<\frac{2n}{3n+7}>$ converges. Find its limit.\\
   % Claim
-  $lim_{n \to \infty} \frac{\frac{2n}{3n+7}} = \frac{2}{3}$\\  
-  $|\frac{2n}{3n+7} - \frac{2}{3}| = |\frac{3(2n) - 2(3n + 7)}{3(3n + 7)}|$
+  % Re right this in the "backwards way" where you pull N out of a hat
+  Claim: $\displaystyle \lim_{n \to \infty} \frac{2n}{3n+7} = \frac{2}{3}$\\[.5cm]
+  \begin{proof}
+  Let $\epsilon > 0$, and observe that:
+  \begin{align*}
+    \left|\frac{2n}{3n+7} - \frac{2}{3}\right| &= 
+    \left|\frac{3(2n) - 2(3n + 7)}{3(3n + 7)}\right|\\
+    &= \left|\frac{-14}{9n+21}\right|\\
+    &= \frac{14}{9n+21}
+  \end{align*}
+  We want $\displaystyle \frac{14}{9n+21} < \epsilon$. Solving for $\epsilon$ gives us:
+  \begin{align*}
+    \displaystyle \frac{14}{9n+21} &< \epsilon\\
+    14 &< \epsilon(9n + 21)\\
+    \frac{14}{\epsilon} &< 9n + 21\\
+    \frac{14}{\epsilon} - 21 &< 9n\\
+    \frac{14}{9 \cdot \epsilon} - \frac{7}{3} &< n
+  \end{align*}
+  So, choose $N$ such that $N = \displaystyle \left\lceil \frac{14}{9 \cdot \epsilon} - \frac{7}{3} \right\rceil$. Then for all $n > N$, we have $\displaystyle \left|\frac{2n}{3n+7} - \frac{2}{3}\right| < \epsilon$.
+\end{proof}
 
-  % 3
-\item (F\&P \#10) Prove that the sequence $<\frac{5n}{3n+1}>$ converges. 
-
+% 3
+\item (F\&P \#10) Prove that the sequence $<\frac{5n}{3n+1}>$ converges. \\
+  Claim: $\displaystyle \lim_{n \to \infty} \frac{5n}{3n+1}$
+  \begin{proof}
+    Let $\epsilon > 0$. Choose $N \in \mathbb{N}$ such that $N = \displaystyle \ceil{\frac{1}{9\epsilon} - \frac{1}{3}}$. If $n > N$, then    
+    \begin{align*}
+      n &> \ceil{\frac{1}{9\epsilon} - \frac{1}{3}}\\
+      n &> \frac{1}{9\epsilon} - \frac{1}{3}\\
+      9n &> \frac{1}{\epsilon} - 3\\
+      9n + 3 &> \frac{1}{\epsilon}\\
+      \frac{1}{9n+3} &< \epsilon\\
+      \abs{\frac{1}{9n+3}} &< \epsilon\\
+      \abs{\frac{15n - 15n + 1}{9n+3}} &< \epsilon\\
+      \abs{\frac{5n}{3n+1} - \frac{5}{3}} &< \epsilon
+    \end{align*}
+\end{proof}
   % 4
 \item (F\&P \#6) Let $<x_n>$ be a sequence with the property that there is a real number $A$ and a natural number $N$ such that $x_n = A$ for all $n > N$. Prove that $<x_n> \to A$.
 
   % 5
 \item (F\&P \#7) Show that $[0,1]$ is a neighborhood of $\frac{7}{8}$.
-
+  \begin{proof}
+    Let $\epsilon = \frac{1}{8}$. 
+    Take $x \in (\frac{7}{8} - \epsilon, \frac{7}{8} + \epsilon)$.
+    It follows that $ \frac{6}{8} < x < 1$. 
+    Thus, $0 \leq x \leq 1$ so $x \in [0,1]$. 
+    Therefore, $[0,1]$ is a neighborhood of $\frac{7}{8}$.
+  \end{proof}
   % 6
 \item Using no negative words say what it would mean for a sequence $<a_n>$ not to converge. Then, show that $<3^{2n-1}>$ does not converge.
   % Hints
