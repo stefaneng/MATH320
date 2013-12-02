@@ -84,8 +84,9 @@
 %%% Start Assignment Here %%%
 \begin{enumerate}
   % 1
-\item Show that the sequence $\langle \frac{1}{n^p} \rangle$ converges if $p > 1$. Find its limit.\\  
-  Claim: $\displaystyle \lim_{n \to \infty} \frac{1}{n^p} = 0$
+\item %Show that the sequence $\langle \frac{1}{n^p} \rangle$ converges if $p > 1$. Find its limit.\\  
+  %Claim: 
+  $\displaystyle \lim_{n \to \infty} \frac{1}{n^p} = 0$
   \begin{proof}
     Let $\epsilon > 0$,
     We want $\abs{\frac{1}{n^p} - 0} = \abs{\frac{1}{n^p}} = \frac{1}{n^p} < \epsilon$.
@@ -118,7 +119,7 @@
 \item Show that the sequence $\langle \frac{2n}{3n+7} \rangle$ converges. Find its limit.\\
   % Claim
   % Re right this in the "backwards way" where you pull N out of a hat
-  Claim: $\displaystyle \lim_{n \to \infty} \frac{2n}{3n+7} = \frac{2}{3}$\\[.5cm]
+  Claim: $\displaystyle \lim_{n \to \infty} \frac{2n}{3n+7} = \frac{2}{3}$
   \begin{proof}
   Let $\epsilon > 0$. Choose $N \in \mathbb N$ such that $N = \displaystyle \ceil{\frac{14}{9\epsilon} - \frac{7}{3}}$. It follows that:
   \begin{align*}
@@ -133,7 +134,7 @@
     &= \abs{\frac{-14}{9n+21}}\\
     &= \frac{14}{9n+21} < \frac{14}{9N + 21} \leq \epsilon
   \end{align*}
-  and so $\langle \frac{2n}{3n+7} \rangle$ converges to $\frac{2}{3}$.
+  and so $\langle \frac{2n}{3n+7} \rangle$ converges to $\displaystyle \frac{2}{3}$.
   % \begin{align*}
   %   \left|\frac{2n}{3n+7} - \frac{2}{3}\right| &= 
   %   \left|\frac{3(2n) - 2(3n + 7)}{3(3n + 7)}\right|\\
@@ -205,6 +206,16 @@
   \end{proof}
   % 6
 \item Using no negative words say what it would mean for a sequence $\langle a_n \rangle$ not to converge. Then, show that $\langle 3^{2n-1} \rangle$ does not converge.\\
+ \textbf{A sequence diverges iff}:
+ For all $A \in \mathbb R$, there exists $\epsilon > 0$ that for all $N \in \mathbb N$ there exists an $n > N$ such that $\abs{A - a_n} \geq \epsilon$.\\
+ \textbf{Symbolically}: $\forall A \in \mathbb R\ (\exists \epsilon > 0\ (\forall N \in \mathbb N\ (\exists n > N\ ( \abs{A - a_n} \geq \epsilon))))$\\
+ Prove that $\langle 3^{2n-1} \rangle$ does not converge.
+ \begin{proof}
+   % a
+   Take an arbitrary $M \in \mathbb R$.
+   
+ \end{proof}
+ 
   % Is this right?
   %% 
 % Stack overflow answer
