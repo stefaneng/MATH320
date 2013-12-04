@@ -1,0 +1,175 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[top=1.5in,left=.9in,right=.9in,bottom=1in,headheight=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{enumerate}
+
+\usepackage{setspace}
+
+\onehalfspacing
+
+
+% Better looking empty set
+\let\emptyset\varnothing
+
+\newtheoremstyle{problem}{\topsep}{\topsep}%
+{}%         Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}% Thm head font
+{\vspace{5pt}}%        Punctuation after thm head
+{\newline}%     Space after thm head (\newline = linebreak)
+{\thmname{#1}\thmnote{ #3}}%         Thm head spec
+
+\theoremstyle{problem}
+\newtheorem{prob}{Problem}
+
+\theoremstyle{plain}
+%\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+% No indent for whole page
+\setlength\parindent{0pt}
+
+\theoremstyle{remark}
+\newtheorem{countex}{Counterexample}
+
+\setlength{\columnsep}{1cm}
+%%% Heading -- No need to edit %%%
+\pagestyle{fancy}
+\newcommand{\ceil}[1] {
+  \left\lceil #1 \right\rceil
+}
+
+\newcommand{\abs}[1] {
+  \left| #1 \right|
+}
+
+\newcommand{\myln}[1] {
+  \ln{\left( #1 \right)}
+}
+% \input{~/latex-templates/custom.sty}
+
+\rhead{
+  Stefan Eng\\
+  Dr. Katherine Stevenson\\
+  Math 320\\
+  12/4/13
+}
+\lhead{
+  Analysis Worksheet 3
+}
+
+\cfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+
+%%%
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+% For manual qed box
+\def\bs{\hspace{\stretch1}\ensuremath\blacksquare}
+
+\begin{document}
+
+%%% Make the title %%%
+\begin{center}
+  \textsc{\Large Foundations of Higher Mathematics}\\[.3cm]
+  \textsc{\Large Homework 14 (Analysis 3)}
+\end{center}
+%%% End title %%%
+
+%%% Start Assignment Here %%%
+\begin{enumerate}
+  % 1
+\item Let $\langle a_n \rangle$ be defined recursively as follows: $a_1 = 1$ and $a_{n+1} = \sqrt{3a_n}$. 
+%Use induction to prove that $a_n = 3^{\frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^{n-1}}}$.
+\begin{proof}
+  Let $S = \{n \in \mathbb N|\ n > 1 \text{ and } a_n = 3^{\frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^{n-1}}}\}$. We can see that $a_2 = \sqrt{3a_1} = \sqrt{3} = 3^{\frac{1}{2}}$. So $2 \in S$. Now assume that $a_k = 3^{\frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^{k-1}}}$.
+  \begin{align*}
+    a_{k+1} &= \sqrt{3 a_k}\\
+    &= \sqrt{3}\ \sqrt{a_k}\\
+    &= 3^{\frac{1}{2}} \cdot \sqrt{3^{\frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^{k-1}}}}\\
+    &= 3^{\frac{1}{2}} \cdot 3^{\frac{1}{4} + \frac{1}{8} + \ldots + \frac{1}{2^{k-1}} + \frac{1}{2^k}}\\
+    &= 3^{\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \ldots + \frac{1}{2^{k-1}} + \frac{1}{2^{(k+1)-1}}}
+  \end{align*}
+So $k + 1 \in S$. Therefore, by EPMI, $\{n \in \mathbb N|\ n > 1 \} \subseteq S$.
+\end{proof}
+% 2
+\item Let $\langle a_n \rangle$ be defined as above. Prove that $\langle a_n \rangle$ is increasing and thus bounded below.
+\begin{proof}
+  Let $S = \{n \in \mathbb N|\ n \geq 1 \text{ and } a_{n+1} \geq a_n\}$. Observe that $1 \geq 1$ and $a_{n+1} = \sqrt{3a_n} = \sqrt{3} \geq 1$. So $1 \in S$. Assume $k \in S$, $a_{k+1} \geq a_k$.
+\begin{align*}
+  a_{k+1} &= \sqrt{3 a_k}  
+\end{align*}
+\end{proof}
+ \begin{proof}
+  Let $n < n + 1$. Want to show $a_n < a_{n+1}$. Then:
+\begin{align*}
+  a_n &= 3^{\frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^{n-1}}}\\
+  &< 3^{\frac{1}{2^n}} \cdot 3^{\frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^{n-1}}}\\
+  &< 3^{\frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^{n-1}} + \frac{1}{2^n}}\\
+  &< a_{n+1}
+\end{align*}
+Therefore, $\langle a_n \rangle$ is increasing, and thus,
+% Does this need a proof?
+bounded below by $1$.
+\end{proof}
+% 3
+\item Let $\langle a_n \rangle$ be defined as above. Prove that $\langle a_n \rangle$ is bounded above by 3.
+\begin{proof}
+  Let $S = \{n \in \mathbb N|\ a_n \leq 3\}$. Since $a_1 = 1$, and $1 \leq 3$, then $1 \in S$. Now assume that $k \in S$. Thus, $a_k \leq 3$. We want to show that $a_{k+1} \leq 3$.
+  \begin{align*}
+    a_{k+1} &= \sqrt{3a_k}\\
+    &= \sqrt{3}\ \sqrt{a_k}\\
+    &\leq \sqrt{3}\ \sqrt{3}\\
+    &\leq 3
+  \end{align*}
+Thus, $k+1 \in S$. Therefore, by PMI, $S = \mathbb N$, so $\langle a_n \rangle$ is bounded above by $3$.
+\end{proof}
+% 4
+\item $\langle a_n \rangle$ converges.
+\begin{proof}
+  $\langle a_n \rangle$ is increasing and $\{a_n|\ n \in \mathbb N \}$ is bounded above by 3, so $\langle a_n \rangle$ converges.
+%Because this set is a subset of the real numbers, the completeness axiom tells us it has a least upper bound.
+%Call this least upper bound $l$.
+%Call $U$ the set of all upper bounds.
+%In problem 3 we concluded that $3 \in U$.
+%So $U$ is non-empty, and by the well-ordering principle there is a least element $l$.
+%So, $a_n \leq l$. Let $\epsilon > 0$.
+%It follows that $l - \epsilon < a_n \leq l$ since $l$ is the least upper bound.
+%For $n > N$, we have $a_n \geq a_N$ because $a_n$ is increasing.
+%It follows that, $l - \epsilon < a_N \leq a_n \leq l < l + \epsilon$ and thus, $\abs{a_n - l} < \epsilon$.
+%Therefore $\langle a_n \rangle$ converges.
+\end{proof}
+% 5
+\item $\displaystyle \lim_{n \to \infty} \frac{3n^2+n+4}{3 + n + 5n^2} = \frac{3}{5}$
+\begin{proof}
+  Observe that $\displaystyle \frac{3n^2+n+4}{3 + n + 5n^2} < \frac{3n^2+\frac{3}{5}n+\frac{9}{5}}{3 + n + 5n^2}$\\[0.5cm]
+%Want to show that $\lim_{n \to \infty} \frac{3n^2+n+4}{3 + n + 5n^2} = \frac{3}{5}$.
+Let $\epsilon > 0$.
+It follows that
+\begin{align*}
+  \abs{\frac{3n^2+\frac{3}{5}n+\frac{9}{5}}{3 + n + 5n^2}} &= \abs{\frac{5(3n^2+\frac{3}{5}n+\frac{9}{5})}{5(3 + n + 5n^2)} - \frac{3(3 + n + 5n^2)}{5(3 + n + 5n^2)}}\\
+  &= \abs{\frac{15n^2 + 3n + 9 - 15n^2 - 3n - 9}{5(3 + n + 5n^2)}}\\
+  &= 0 < \epsilon
+\end{align*}
+Thus, it converges to $\displaystyle \frac{3}{5}$.\\[.5cm]
+Now observe that $\displaystyle \frac{3n^2+n+4}{3 + n + 5n^2} > \frac{3n^2+n+4}{\frac{20}{3} + \frac{5}{3}n + 5n^2}$\\[.5cm]
+Let $\epsilon > 0$. Then
+\begin{align*}
+\abs{\frac{3n^2+n+4}{\frac{20}{3} + \frac{5}{3}n + 5n^2} - \frac{3}{5}} &= \abs{\frac{5(3n^2 + n + 4) - 3(\frac{20}{3} + \frac{5}{3}n + 5n^2)}{5(\frac{20}{3} + \frac{5}{3}n + 5n^2)}}\\
+&= \abs{\frac{15n^2 + 5n + 20 - 15n^2 - 5n - 20}{5(\frac{20}{3} + \frac{5}{3}n + 5n^2)}}\\
+&= 0 < \epsilon
+\end{align*}
+Thus, it converges to $\displaystyle \frac{3}{5}$.
+
+Therefore, by the squeeze theorem, $\displaystyle \frac{3n^2+n+4}{3 + n + 5n^2}$ converges to $\displaystyle \frac{3}{5}$.
+
+\end{proof}
+
+\end{enumerate}
+
+\end{document}
