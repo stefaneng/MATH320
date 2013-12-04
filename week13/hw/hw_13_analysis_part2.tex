@@ -88,16 +88,25 @@
   %Claim: 
   $\displaystyle \lim_{n \to \infty} \frac{1}{n^p} = 0$
   \begin{proof}
-    Let $\epsilon > 0$,
-    We want $\abs{\frac{1}{n^p} - 0} = \abs{\frac{1}{n^p}} = \frac{1}{n^p} < \epsilon$.
-    \begin{align*}
-      \frac{1}{n^p} &< \epsilon\\
-      1 &< n^p \epsilon\\
-      \frac{1}{\epsilon} &< n^p\\
-      \myln{\frac{1}{\epsilon}} &< p \myln{n}\\
-      \frac{\myln{\frac{1}{\epsilon}}}{p} &< \myln{n}
-    \end{align*}
-    ...
+    Let $\epsilon > 0$. Then by Archimedes, $\frac{1}{N} < \epsilon$. Assume $n > N$. It follows that
+\begin{align*}
+  \abs{\frac{1}{n^p} - 0} &= \abs{\frac{1}{n^p}}\\
+  &= \frac{1}{n^p}
+\end{align*}
+Since $p > 1$, $\frac{1}{n^p} < \frac{1}{n}$. Therefore, because
+$$
+\frac{1}{n^p} < \frac{1}{n} < \frac{1}{N} < \epsilon
+$$
+and thus, $\frac{1}{n^p} < \epsilon$, we can conclude that $\frac{1}{n^p}$ converges to $0$.
+% We want $\abs{\frac{1}{n^p} - 0} = \abs{\frac{1}{n^p}} = \frac{1}{n^p} < \epsilon$.
+ %   \begin{align*}
+ %     \frac{1}{n^p} &< \epsilon\\
+ %     1 &< n^p \epsilon\\
+ %     \frac{1}{\epsilon} &< n^p\\
+ %     \myln{\frac{1}{\epsilon}} &< p \myln{n}\\
+ %     \frac{\myln{\frac{1}{\epsilon}}}{p} &< \myln{n}
+ %   \end{align*}
+ %   ...
     % This needs to break somewhere if p <= 1?????
 
     % Want to show that 1/n^p < epsilon for all n > M
@@ -205,15 +214,25 @@
     Therefore, $[0,1]$ is a neighborhood of $\frac{7}{8}$.
   \end{proof}
   % 6
-\item Using no negative words say what it would mean for a sequence $\langle a_n \rangle$ not to converge. Then, show that $\langle 3^{2n-1} \rangle$ does not converge.\\
- \textbf{A sequence diverges iff}:
- For all $A \in \mathbb R$, there exists $\epsilon > 0$ that for all $N \in \mathbb N$ there exists an $n > N$ such that $\abs{A - a_n} \geq \epsilon$.\\
- \textbf{Symbolically}: $\forall A \in \mathbb R\ (\exists \epsilon > 0\ (\forall N \in \mathbb N\ (\exists n > N\ ( \abs{A - a_n} \geq \epsilon))))$\\
+\item \textbf{Definition of divergence:} For all $M > 0$, there is an $N$ such that for all $n > N$, $a_n > M$.
+%\textbf{A sequence diverges iff}:
+% For all $A \in \mathbb R$, there exists $\epsilon > 0$ that for all $N \in \mathbb N$ there exists an $n > N$ such that $\abs{A - a_n} \geq \epsilon$.\\
+ %\textbf{Symbolically}: $\forall A \in \mathbb R\ (\exists \epsilon > 0\ (\forall N \in \mathbb N\ (\exists n > N\ ( \abs{A - a_n} \geq \epsilon))))$\\
+ 
  Prove that $\langle 3^{2n-1} \rangle$ does not converge.
  \begin{proof}
    % a
-   Take an arbitrary $M \in \mathbb R$.
-   
+   Take an arbitrary $M \in \mathbb R$, $M > 1$.
+   We want $a_n > M$.
+   Take $3^{2N-1} \geq M$.
+   It follows that
+   \begin{align*}
+     (2N - 1) \log (3) &\geq \log (M)\\
+     (2N - 1) &\geq \frac{\log (M)}{\log (3)}\\
+     2N &\geq \frac{\log (M)}{\log (3)} + 1\\
+     N &\geq \frac{\log (M)}{2 \log (3)} + \frac{1}{2}
+   \end{align*}
+   So choose $N = \frac{\log (M)}{2 \log (3)} + \frac{1}{2}$ and then $\forall n > N$ we have shown that $3^{2n-1} \geq M$.
  \end{proof}
  
   % Is this right?
