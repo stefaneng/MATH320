@@ -63,7 +63,7 @@ headheight=.5in]
     a &= bq_1 + r_1 && 0 \leq r_1 < b\\
     b &= r_1q_2 + r_2 && 0 \leq r_2 < r_1\\
     r_1 &= r_2q_3 + r_3 && 0 \leq r_3 < r_2\\
-    r_2 &= r_3q_4 + r_4 && 0 \leq r_4 < r_3\\
+    %r_2 &= r_3q_4 + r_4 && 0 \leq r_4 < r_3\\
     & \vdots && \vdots
   \end{align*}
   Example:
@@ -73,7 +73,7 @@ headheight=.5in]
     126 &= 105 \cdot 1 + 21\\
     105 &= 21 \cdot 5 + 0
   \end{align}
-  So $\gcd(735,126) = 21$.\\
+  So $\gcd(735,126) = 21$.
   \begin{align*}
     21 &= 126 - 105(1) && \text{From Line 2}\\
     &= 126 - [735 - 126(5)] && \text{From Line 1}\\
@@ -113,13 +113,15 @@ headheight=.5in]
   \begin{itemize}
   \item If $d \not | b$, then $ax \equiv b \pmod{n}$ has \textbf{NO} solutions.
   \item If $d|b$, then $ax \equiv b \pmod{n}$ has \textbf{d non congruent} solutions.
+  \item $p$ prime, Then $a^2 \equiv 1 \pmod p \iff a \equiv 1 \pmod p$ or
+    $a \equiv -1 \pmod p$
+  \item $p$ prime, $p \not | a$. Then $a^{p-1} \equiv 1 \pmod p$
   \end{itemize}
 \end{itemize}
 \subsection*{Functions}
   For a function $f: X \to Y$\\
-  \textbf{Domain} is $X$.\\
-  \textbf{Codomain} is $Y$.\\
-  \textbf{Injective (one-to-one)}: (\textbf{Def. 1}) $\forall x,y \in A, f(x) = f(y) \implies x = y$\\ (\textbf{Def. 2}) $\forall y \in Im(f), \exists ! x \in X$ such that $f(x) = y$\\
+  \textbf{Domain} is $X$. \textbf{Codomain} is $Y$.\\
+  \textbf{Injective (one-to-one)}: (\textbf{Def. 1}) \\$\forall x,y \in A, f(x) = f(y) \implies x = y$\\ (\textbf{Def. 2}) $\forall y \in Im(f), \exists ! x \in X$ such that $f(x) = y$\\
   - To prove: Assume $f(x) = f(y)$. Show $x = y$.\\
   - To prove (not): Find specific $c \in Y$ and $a \not = b$, $a,b\in X$ such that $f(a) = c = f(b)$.\\
   \textbf{Surjective (onto)}: $\forall y \in Y, \exists x \in X$ such that $f(x) = y$. Also, $Im(f) = Y$.\\
