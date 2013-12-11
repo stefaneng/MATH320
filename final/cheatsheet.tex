@@ -1,0 +1,200 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage[landscape,%
+top=.5in,%
+left=.5in,%
+right=.5in,%
+bottom=.5in,%
+headheight=.5in]
+{geometry}
+\usepackage{setspace}
+\usepackage{multicol}
+
+\onehalfspacing
+
+\newcommand\setbar{\hspace{3pt} \big| \hspace{3pt}}
+% Absolute value
+\newcommand{\abs}[1] {
+  \left| #1 \right|
+}
+
+\setlength{\columnseprule}{0.1pt}
+\setlength{\columnsep}{2pc}
+
+\pagenumbering{gobble}
+
+\begin{document} 
+
+\begin{multicols}{3}
+  \subsection*{Propositions}
+  $P \to Q$\\
+  \textbf{Contrapositive}: $\neg Q \to \neg P$\\
+  \textbf{Converse}: $Q \to P$\\
+  \textbf{Negation}: $\neg (P \to Q) \iff P \wedge \neg Q$
+  \subsection*{Set Theory}
+  $A \subseteq B \iff A \in \mathcal P(B) \iff \forall x \in A \implies x \in B$.
+  Assume arbitrary $x \in A$. Show that $x \in B$.\\
+  $A = B \iff A \subseteq B \wedge B \subseteq A$.\\
+  $A \not \subseteq B$. Show there exists an $x \in A$ and $x \not \in B$.\\
+
+  \subsection*{Mathematical Induction}
+  \textbf{Inductive}: $S \subseteq \mathbb N$ is inductive if $\forall n \in S$ we have $n + 1 \in S$.\\
+  \textbf{PMI}: If $S \subseteq \mathbb N$ is inductive, and $1 \in S$. Then $S = \mathbb N$.\\
+  \textbf{EMPI}: Let $k \in \mathbb N$ and let $S \subseteq \mathbb N$ such that
+  (a) $k \in S$ and (b) if $n \geq k$ and $n \in S$, then $n + 1 \in S$. 
+  Then $\{n \in \mathbb N \setbar n \geq k \} \subseteq S$.\\
+  \textbf{SPMI}: Let $S \subseteq \mathbb N$ such that
+  (a) $1 \in S$ and 
+  (b) For each $n \geq k$ if $\{1,2,3,\ldots,n\} \subseteq S$ then $n + 1 \in S$. Then $S = \mathbb N$.\\
+  \textbf{ESPMI}:  Let $k \in \mathbb N$ and $S \subseteq \mathbb N$ such that
+  (a) $k \in S$ and 
+  (b) For each $n \geq k$ if $\{k,k+1,\ldots,n\} \subseteq S$ then $n + 1 \in S$. 
+  Then $\{n \in \mathbb N \setbar n \geq k\} \subseteq S$.\\
+  \textbf{LNNP}: Every nonempty set of the natural numbers has a least member.
+
+  \subsection*{Number Theory}
+  - \textbf{Division Algorithm}: $a = bq + r$ where $0 \leq r < b$.\\
+  $\gcd(a,b)$ is the largest natural number such that $d|a$ and $d|b$.\\
+  - \textbf{Euclidean Algorithm}:\\
+  (\textit{Lemma}: If $a = bq + r$, $a,b,q,r \in \mathbb Z$. $a \not = 0$ and $b \not = 0$ then $\gcd(a,b) = \gcd(b,r)$).
+  Given $a,b \in \mathbb N$, to compute the $\gcd(a,b)$, apply lemma repeatedly.
+  \begin{align*}
+    a &= bq_1 + r_1 && 0 \leq r_1 < b\\
+    b &= r_1q_2 + r_2 && 0 \leq r_2 < r_1\\
+    r_1 &= r_2q_3 + r_3 && 0 \leq r_3 < r_2\\
+    r_2 &= r_3q_4 + r_4 && 0 \leq r_4 < r_3\\
+    & \vdots && \vdots
+  \end{align*}
+  Example:
+  $\gcd(735,126)$ and find $m,n \in \mathbb Z$ such that $\gcd(735,126) = 735m + 126n$
+  \begin{align}
+    735 &= 126 \cdot 5 + 105\\
+    126 &= 105 \cdot 1 + 21\\
+    105 &= 21 \cdot 5 + 0
+  \end{align}
+  So $\gcd(735,126) = 21$.\\
+  \begin{align*}
+    21 &= 126 - 105(1) && \text{From Line 2}\\
+    &= 126 - [735 - 126(5)] && \text{From Line 1}\\
+    &= 735(-1) + 126(6)
+  \end{align*}
+  % Add something here?
+  - \textbf{Thm}: If $a,b \in \mathbb Z$ are not both zero and $d = \gcd(a,b)$ then 
+  $\{ax + by|\ x,y \in \mathbb Z\} = d\mathbb Z$.\\
+  - \textbf{Diophantine Equations}: There are integer solutions to $ax + by = c$ if and only if $d = \gcd(a,b) | c$. If $d|c$, then the complete list of solutions is:
+  \begin{align*}
+    x &= x_0 + \frac{b}{d}k\\
+    y &= y_0 - \frac{a}{d}k
+  \end{align*}
+  Where $k \in \mathbb Z$ and $(x_0,y_0)$ is one integer solution.\\
+  - If $k \in \mathbb Z$ and $k \not = 0$ then $\gcd(ka,kb) = k\cdot \gcd(a,b)$\\
+  - $\gcd(a,b) = d \iff \gcd(\frac{a}{d},\frac{b}{d}) = 1$.
+
+
+  \subsection*{Relations}
+  - A \textbf{relation}, $R$, is a collection of pairs.\\
+  - The set of first terms of $R$ is called the \textbf{domain}.\\
+  - The set of second terms of $R$ is called the \textbf{range}.\\
+  - If $x$ in the domain of $R$, $R[x] = \{y \setbar (x,y) \in R\}$\\
+  - \textbf{Cartesian Product}: $A \times B = \{(a,b) \setbar a \in A \wedge b \in B\}$\\
+  - \textbf{Inverse Relation}: $R^{-1} = \{(x,y) \setbar (y,x) \in R\}$.\\
+  % \textbf{Symmetric}: If $R = R^{-1}$
+  % Add the [x] notation definitions?
+  - \textbf{Reflexive}: For every $x \in S, (x,x) \in R$. (For each $x\in S, x \in [x]$)\\
+  - \textbf{Symmetric}: If $(x,y) \in R$ then $(y,x) \in R$. ($R = R^{-1}$), (If $x \in [y]$ then $y \in [x]$)\\
+  - \textbf{Transitive}: If $(x,y),(y,z) \in R$ then $(x,z) \in R$. (If $y \in [x]$ and $z \in [y]$ then $z \in [x]$.\\
+  - \textbf{Equivalence Class}: Relation $R$ on set $S$, element $x \in S$, then $[x]$ is called the \textit{Equivalence Class} of $x$.\\
+  - \textbf{Congruence}: $a \equiv b \pmod n$ provided that $n|(a - b)$\\
+  \subsubsection*{Theorems}
+  \begin{itemize}
+  \item Given $n \in \mathbb N$ and $a,b \in \mathbb Z$ and $d = \gcd(c,n)$. If $ac \equiv bc \pmod{n}$ then $a \equiv b \pmod{\frac{n}{d}}$.
+  \item Given $n \in \mathbb N$ and $a,b \in \mathbb Z$ and $d = \gcd(a,n)$ (Used to solve things like $3x = 7 \pmod 5$)
+  \begin{itemize}
+  \item If $d \not | b$, then $ax \equiv b \pmod{n}$ has \textbf{NO} solutions.
+  \item If $d|b$, then $ax \equiv b \pmod{n}$ has \textbf{d non congruent} solutions.
+  \end{itemize}
+\end{itemize}
+\subsection*{Functions}
+  For a function $f: X \to Y$\\
+  \textbf{Domain} is $X$.\\
+  \textbf{Codomain} is $Y$.\\
+  \textbf{Injective (one-to-one)}: (\textbf{Def. 1}) $\forall x,y \in A, f(x) = f(y) \implies x = y$\\ (\textbf{Def. 2}) $\forall y \in Im(f), \exists ! x \in X$ such that $f(x) = y$\\
+  - To prove: Assume $f(x) = f(y)$. Show $x = y$.\\
+  - To prove (not): Find specific $c \in Y$ and $a \not = b$, $a,b\in X$ such that $f(a) = c = f(b)$.\\
+  \textbf{Surjective (onto)}: $\forall y \in Y, \exists x \in X$ such that $f(x) = y$. Also, $Im(f) = Y$.\\
+  - To prove: Suppose $y \in Y$ find $x \in X$ such that $f(x) = y$ (Solve for x).\\ 
+  - To prove (not): Find $z \in Y$ such that $f(x) \not = z, \forall x \in X$.\\
+  \textbf{Image}: If $A \subset X$, $f(A) = \{f(a)\setbar a \in A\}$, 
+  ALSO $\{y \in Y\setbar \exists x \in X \text{ with } f(x) = y\}$\\
+  \textbf{Preimage}: If $B \subseteq Y$, $f^{-1}(B) = \{x \in X \setbar f(x) \in B \}$\\
+  \textbf{Inverse}: $f$ is said to be invertible if $\exists h:T \to S$ such that
+  $f \circ h = id_T$ and $h \circ f = id_S$. Then $h = f^{-1}$ is the inverse.
+  \subsubsection*{Theorems}
+  \begin{itemize}
+  \item If $f$ and $g$ are injective then so is $g \circ f$
+  \item If $f$ and $g$ are surjective then so is $g \circ f$
+  \item If $g \circ f$ is injective then so is $f$
+  \item If $g \circ f$ is surjective then so is $g$
+  \item $f$ is invertible $\iff$ $f$ is bijective
+  \item $y \in f(A) \iff \exists x \in A$, such that, $f(x) = y$.
+  \item $x \in f^{-1}(D) \iff f(x) \in D$.\\
+    - (Proof-ish) $x \in f^{-1}(D) \implies \exists d \in D$ such that $f(x) = d$. Thus, $f(x) \in D$.
+  \item If $x \in A$, then $f(x) \in f(A)$
+  \item If $f(x) \in f(A)$, then $x \in A$. \textbf{ONLY IF} $f$ is one-to-one!\\
+    - (Proof) Assume $f(x) \in f(A) \implies \exists y \in A$, such that, $f(y) = f(x) \implies x = y$. Thus, $x \in A$.
+  \item $f: X \to Y$ is \textbf{injective} if and only if 
+    $(\forall A \in Im(f))(\exists! x \in f^{-1}(\{y\}))$
+  \item $f: X \to Y$ is \textbf{surjective} if and only if
+    $(\forall y \in Y)(\exists x \in f^{-1}(\{y\}))$.
+  \item $f: X \to Y$ is \textbf{bijective} if and only if
+    $(\forall y \in Y)(\exists ! x \in f^{-1}(\{y\}))$
+  \end{itemize}
+
+  \subsection*{Analysis}
+  \textbf{Converges}: $\exists L \in \mathbb R$, such that $\forall \epsilon > 0, \exists N \in \mathbb N$ such that $\forall n > N$, $\abs{a_n - L} < \epsilon$.\\
+  \textbf{Neighborhood}: $U \subset \mathbb R$, is a \textit{neighborhood} of $A$ if: 
+  $\exists \epsilon > 0$, such that $(A - \epsilon, A + \epsilon) \subseteq U$.\\
+  \textbf{Lub}: $s \in \mathbb R$ is the \textit{least upper bound} of $A$ if it is an upper bound and for any other upper bound $b$ we have $b \geq s$.\\
+  \textbf{Glb}: $t \in \mathbb R$ is the \textit{greatest lower bound} of $A$ if it is a lower bound and for any other lower bound $l$ we have $l \leq t$.
+
+  \subsubsection*{Theorems}
+  \begin{itemize}
+  \item \textbf{Completeness Axiom}: Every non-empty subset of the real numbers which is bounded above has a least upper bound. Leads to the following (Archimedian Property)
+    \begin{enumerate}
+    \item Given any $x \in \mathbb R_{> 0}$, there exists an $n \in \mathbb N$ such that $n > x$.
+    \item Given any $y \in \mathbb R_{> 0}$, there exists an $n \in \mathbb N$ such that $\frac{1}{n} < y$.
+    \end{enumerate}
+  \item If a sequence converges then it is bounded.
+  \item Bounded and monotone implies convergent (to $lub$ or $glb$).
+  \item A sequence $\langle a_n\rangle $ converges to a real number $A$ if and only if every neighborhood of A contains $a_n$ for all but finitely many $n \in \mathbb N$.
+  \item Limits are unique if they exist
+  \end{itemize}
+
+  \subsubsection*{Proof Strategies}
+  \begin{itemize}
+  \item \textbf{Least upper bound}: To prove $S$ is the least upper bound of $A$:
+    \begin{enumerate}
+    \item Show that $S$ is \textbf{an} upper bound of $A$.
+    \item Show that for any $S' < S$, $S'$ is not an upper bound of $A$.
+    \end{enumerate}
+  \item \textbf{Greatest lower bound}: To prove $T$ is the greatest lower bound of $A$:   
+    \begin{enumerate}
+      \item Show that $T$ is \textbf{a} lower bound of $A$.
+      \item Show that for any $T' > T$, $T'$ is not a lower bound of $A$.
+    \end{enumerate}
+  \item \textbf{Convergence}: To prove a sequence converges: 
+    \begin{enumerate}
+    \item Use rules from calculus to find the limit $L$.
+    \item Then solve $\abs{a_n - L} < \epsilon$ for $n$. (Scratch work)
+    \item Set $N$ to the value greater than $n$ (Should be something with $\epsilon 's$)
+    \item If $n > N$, show that $\abs{a_n - L}$ leads to $\abs{a_n - L} < \epsilon$.
+    \end{enumerate}
+  \end{itemize}
+
+ % \subsubsection*{Example Proofs}
+  
+  
+\end{multicols}
+
+\end{document}
